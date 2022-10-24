@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/authentication/authentication.dart';
+import 'package:flutter_login/components/bottom_nav.dart';
+import 'package:flutter_login/components/icon_btn.dart';
+import 'package:flutter_login/components/rounded_btn.dart';
+import 'package:flutter_login/connecting/connecting.dart';
+import 'package:flutter_login/theme/constants.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ConnectPage extends StatelessWidget {
@@ -13,37 +19,97 @@ class ConnectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: const Text('Connect'),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-           Text("Before you connect" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
-           SizedBox(height: 30,),
-           Text("1 - Plug in the adapter to the flutter_login port"),
-           SizedBox(height: 10,),
-           Text("2 - Turn on your vehivles engine"),
-           SizedBox(height: 10,),
-           Text("3 - Make sure that bluetooth is on")
-          ],
+        body: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text("Before you connect",
+                  style: Theme.of(context).textTheme.headline1),
+              SizedBox(
+                height: 40,
+              ),
+              Divider(),
+              SizedBox(
+                height: 40,
+              ),
+
+              //  SizedBox(height: 30,),
+              //  Text("1 - Plug in the adapter to the OBD port" , style :Theme.of(context).textTheme.bodyText1),
+              //  SizedBox(height: 10,),
+              //  Text("2 - Turn on your vehivles engine" , style :Theme.of(context).textTheme.bodyText1),
+              //  SizedBox(height: 10,),
+              //  Text("3 - Make sure that bluetooth is on" , style :Theme.of(context).textTheme.bodyText1),
+              SvgPicture.asset(
+                "assets/images/obd.svg",
+                color: Colors.white,
+                width: 120,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StepTile('1 - Plug in the adapter to the OBD port'),
+              SizedBox(
+                height: 10,
+              ),
+
+              SvgPicture.asset(
+                "assets/images/engine.svg",
+                color: Colors.white,
+                width: 100,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StepTile('2 - Turn on your vehivles engine'),
+              SizedBox(
+                height: 10,
+              ),
+
+              SvgPicture.asset(
+                "assets/images/bluetooth.svg",
+                color: Colors.white,
+                width: 100,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StepTile('3 - Make sure that bluetooth is on'),
+              SizedBox(
+                height: 10,
+              ),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.red,
-        items:[
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-      ]),
-    );
+        floatingActionButton: SizedBox(
+            width: MediaQuery.of(context).size.width - 40,
+            child: RoundedBtn(
+              icon: "assets/images/bluetooth.svg",
+              iconSize: 30,
+              onPressed: () {
+                Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ConnectingPage()),
+        );
+              },
+              text: "connect",
+            )),
+        bottomNavigationBar: BottomNav());
+  }
+
+  Container StepTile(String title) {
+    return Container(
+        margin: EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+          // boxShadow: [AppTheme.mainShadow],
+          borderRadius: BorderRadius.circular(10),
+          // gradient: AppTheme.mainGredient
+        ),
+        child: Text(
+          title,
+          style: TextStyle(color: Colors.white),
+        ));
   }
 }

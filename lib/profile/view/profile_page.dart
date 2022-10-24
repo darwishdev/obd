@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/authentication/authentication.dart';
+import 'package:flutter_login/cars/cars.dart';
 import 'package:flutter_login/centers/view/centers_page.dart';
 import 'package:flutter_login/components/bottom_nav.dart';
 import 'package:flutter_login/components/center_partial.dart';
 import 'package:flutter_login/components/fault_code.dart';
 import 'package:flutter_login/connect/connect.dart';
 import 'package:flutter_login/history/history.dart';
+import 'package:flutter_login/login/login.dart';
 import 'package:flutter_login/report/report.dart';
 import 'package:flutter_login/reviews/view/view.dart';
 import 'package:flutter_login/theme/constants.dart';
@@ -74,7 +76,14 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                ProfileTile("edit cart info", "assets/images/car.svg", () {}),
+                ProfileTile("edit car info", "assets/images/car.svg", () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EditCarPage()),
+                  );
+                }),
+                
                 ProfileTile("Your Reviews", "assets/images/review.svg",  () {
                   Navigator.push(
                     context,
@@ -89,12 +98,25 @@ class ProfilePage extends StatelessWidget {
                         builder: (context) => const CreateReviewPage()),
                   );
                 }),
-                ProfileTile("Connect", "assets/images/connect.svg", () {}),
+                ProfileTile("Connect", "assets/images/connect.svg", () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ConnectPage()),
+                  );
+                }),
                 ProfileTile("Scan History", "assets/images/history.svg", () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const HistoryPage()),
+                  );
+                }),
+                 ProfileTile("Signout", "assets/images/logout.svg", () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginPage()),
                   );
                 })
                 // FaultCode(color: Color(0xff1cb4bf),)

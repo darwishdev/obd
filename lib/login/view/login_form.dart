@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/components/rounded_btn.dart';
+import 'package:flutter_login/connect/connect.dart';
 import 'package:flutter_login/login/login.dart';
+import 'package:flutter_login/register/view/view.dart';
 import 'package:formz/formz.dart';
 
 class LoginForm extends StatelessWidget {
@@ -34,7 +36,13 @@ class LoginForm extends StatelessWidget {
               const Padding(padding: EdgeInsets.all(12)),
               TextButton(
                 child: Text("Dont't have account? Sign up"),
-                onPressed: () => {},
+                onPressed: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterPage()),
+                  );
+                },
               ),
               const Padding(padding: EdgeInsets.all(12)),
               _LoginButton(),
@@ -98,7 +106,10 @@ class _LoginButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : RoundedBtn(icon: "assets/images/login.svg", text: "Login" , iconSize: 20, onPressed:  state.status.isValidated
                     ? () {
-                        context.read<LoginBloc>().add(const LoginSubmitted());
+                          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ConnectPage()),
+        );
                       }
                     : null,);
       },
