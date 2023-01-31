@@ -255,7 +255,7 @@ class _LoginButton extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) =>  HomePage()),
         );
       },
     );

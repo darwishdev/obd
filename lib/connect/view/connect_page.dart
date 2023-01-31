@@ -5,6 +5,7 @@ import 'package:flutter_login/components/bottom_nav.dart';
 import 'package:flutter_login/components/icon_btn.dart';
 import 'package:flutter_login/components/rounded_btn.dart';
 import 'package:flutter_login/connecting/connecting.dart';
+import 'package:flutter_login/livedata/view/live_data_page.dart';
 import 'package:flutter_login/theme/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -90,7 +91,7 @@ class ConnectPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ConnectingPage()),
+          MaterialPageRoute(builder: (context) => LiveData()),
         );
               },
               text: "connect",

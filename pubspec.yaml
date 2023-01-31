@@ -24,6 +24,7 @@ dependencies:
   show_up_animation: ^2.0.0
   flutter_rating_bar: ^4.0.1
   flutter_launcher_icons: ^0.10.0
+  syncfusion_flutter_charts: ^20.3.52
 
 flutter_icons:
   image_path: "assets/images/logo.png"

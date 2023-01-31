@@ -54,6 +54,7 @@ class _AppViewState extends State<AppView> {
           headline1: TextStyle(
               fontSize: 18.0,
               fontFamily: 'English',
+              color: Colors.white,
               fontWeight: FontWeight.bold),
           headline2: TextStyle(fontSize: 16.0,color: Colors.white, fontWeight: FontWeight.bold ,fontFamily: 'English'),
           bodyText1: TextStyle(fontSize: 16.0, color: Colors.white, fontFamily: 'English'),
@@ -103,10 +104,10 @@ class _AppViewState extends State<AppView> {
           listener: (context, state) {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
-                _navigator.pushAndRemoveUntil<void>(
-                  HomePage.route(),
-                  (route) => false,
-                );
+                // _navigator.pushAndRemoveUntil<void>(
+                //   HomePage.route(),
+                //   (route) => false,
+                // );
                 break;
               case AuthenticationStatus.unauthenticated:
                 _navigator.pushAndRemoveUntil<void>(
