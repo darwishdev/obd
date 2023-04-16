@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:obd/components/rounded_btn.dart';
 import 'package:obd/theme/constants.dart';
 
@@ -53,7 +52,6 @@ class _EditCarPageState extends State<EditCarPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }

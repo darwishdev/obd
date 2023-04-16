@@ -39,7 +39,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         EasyLoading.dismiss();
         context
           ..popRoute()
-          ..replaceRoute(const ConnectPage());
+          ..replaceRoute(const BottomNavBarRoute());
       } else if (state is ErrorViewState) {
         EasyLoading.showError(state.errorMessage);
         context.popRoute();

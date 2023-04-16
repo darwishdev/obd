@@ -13,5 +13,14 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: LoginRoute.page),
     AutoRoute(page: RegisterRoute.page),
     AutoRoute(page: ConnectPage.page),
+    AutoRoute(
+      page: BottomNavBarRoute.page,
+      children: [
+        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: LiveDataRoute.page),
+        AutoRoute(page: HistoryRoute.page),
+        AutoRoute(page: ProfileRoute.page),
+      ],
+    ),
   ];
 }

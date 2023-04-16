@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:obd/reviews/view/view.dart';
 
 class CreateReviewPage extends StatelessWidget {
@@ -12,10 +11,10 @@ class CreateReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(12),
-          child: const ReviewForm(),
-        ),
-        bottomNavigationBar: BottomNav());
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: const ReviewForm(),
+      ),
+    );
   }
 }

@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:obd/components/icon_btn.dart';
 import 'package:obd/components/rating.dart';
 import 'package:obd/reviews/view/view.dart';
@@ -17,68 +16,68 @@ class ReviewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(12),
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30, bottom: 10),
-                          child: Text(
-                            "Your Rivews",
-                          ),
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30, bottom: 10),
+                        child: Text(
+                          "Your Rivews",
                         ),
-                        IconBtn(
-                            icon: "assets/images/add.svg",
-                            padding: 10,
-                            onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const CreateReviewPage()),
-                                ))
-                      ],
-                    ),
+                      ),
+                      IconBtn(
+                          icon: "assets/images/add.svg",
+                          padding: 10,
+                          onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CreateReviewPage()),
+                              ))
+                    ],
                   ),
+                ),
 
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Divider(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ReviewTile(
-                      context,
-                      "Center 1",
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit dolor.",
-                      1),
-                  ReviewTile(
-                      context,
-                      "Center 2",
-                      " Nam vel fermentum sem. Orci varius natoque penatibus et magnis dis",
-                      5),
-                  ReviewTile(
-                      context,
-                      "Center 1",
-                      "parturient montes, nascetur ridiculus mus. Curabitur laoreet magna ut interdum congue.",
-                      2),
-                  ReviewTile(context, "Center 4",
-                      "Quisque nec ipsum risus. Pellentesque maximus, ", 3)
-                  // FaultCode(color: Color(0xff1cb4bf),)
-                ],
-              ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(),
+                SizedBox(
+                  height: 10,
+                ),
+                ReviewTile(
+                    context,
+                    "Center 1",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit dolor.",
+                    1),
+                ReviewTile(
+                    context,
+                    "Center 2",
+                    " Nam vel fermentum sem. Orci varius natoque penatibus et magnis dis",
+                    5),
+                ReviewTile(
+                    context,
+                    "Center 1",
+                    "parturient montes, nascetur ridiculus mus. Curabitur laoreet magna ut interdum congue.",
+                    2),
+                ReviewTile(context, "Center 4",
+                    "Quisque nec ipsum risus. Pellentesque maximus, ", 3)
+                // FaultCode(color: Color(0xff1cb4bf),)
+              ],
             ),
           ),
         ),
-        bottomNavigationBar: BottomNav());
+      ),
+    );
   }
 }
 

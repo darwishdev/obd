@@ -27,7 +27,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         context.replaceRoute(const LoginRoute());
         return;
       }
-      context.replaceRoute(const ConnectPage());
+      context.replaceRoute(const BottomNavBarRoute());
     });
   }
 

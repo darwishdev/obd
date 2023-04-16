@@ -1,16 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class HomePage extends StatefulWidget {
+@RoutePage()
+class HomeScreen extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  HomePage({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomeScreenState extends State<HomeScreen> {
   List<_SalesData> data = [
     _SalesData('Jan', 0),
     _SalesData('Feb', 28),
@@ -111,7 +112,6 @@ class HomePageState extends State<HomePage> {
           // )
         ]),
       ),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }

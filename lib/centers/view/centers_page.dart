@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:obd/components/center_partial.dart';
 
 class CentersPage extends StatelessWidget {
@@ -48,7 +47,6 @@ class CentersPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }

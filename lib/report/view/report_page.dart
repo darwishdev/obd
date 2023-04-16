@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:obd/components/bottom_nav.dart';
 import 'package:obd/components/fault_code.dart';
 
 class ReportPage extends StatelessWidget {
@@ -70,7 +69,6 @@ class ReportPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }
