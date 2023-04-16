@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
-import 'package:flutter_login/components/rounded_btn.dart';
-import 'package:flutter_login/theme/constants.dart';
-import 'package:formz/formz.dart';
+import 'package:obd/components/bottom_nav.dart';
+import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/theme/constants.dart';
 
 class EditCarPage extends StatefulWidget {
   const EditCarPage({super.key});
@@ -28,7 +27,6 @@ class _EditCarPageState extends State<EditCarPage> {
               // ),
               Text(
                 "Edit Your Car",
-                style: Theme.of(context).textTheme.headline1,
               ),
               SizedBox(
                 height: 30,
@@ -99,7 +97,6 @@ class _TypeInput extends StatelessWidget {
         hint: Text("Your Car Type"),
         borderRadius: BorderRadius.circular(10),
         value: 'I20',
-
         items: <String>['VENUE', 'I20', 'TUCSON', 'ELENTRA', 'ACCENT']
             .map((String value) {
           return DropdownMenuItem<String>(
@@ -138,6 +135,7 @@ class _BrandInput extends StatelessWidget {
     );
   }
 }
+
 class _SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

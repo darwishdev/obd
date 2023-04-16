@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/components/slide_in.dart';
-import 'package:flutter_login/history/history.dart';
-import 'package:flutter_login/home/home.dart';
-import 'package:flutter_login/livedata/view/live_data_page.dart';
-import 'package:flutter_login/profile/view/profile_page.dart';
-import 'package:flutter_login/reviews/review.dart';
+import 'package:obd/components/slide_in.dart';
+import 'package:obd/history/history.dart';
+import 'package:obd/home/home.dart';
+import 'package:obd/livedata/view/live_data_page.dart';
+import 'package:obd/profile/view/profile_page.dart';
 
 class BottomNav extends StatelessWidget {
-  final routes = [ LiveData(),HomePage(), HistoryPage(), ProfilePage()];
+  final routes = [LiveData(), HomePage(), HistoryPage(), ProfilePage()];
   BottomNav({super.key});
 
   @override
@@ -38,7 +37,6 @@ class BottomNav extends StatelessWidget {
           label: 'history',
           icon: SlideIn(vertical: true, child: Icon(Icons.history_outlined)),
         ),
-       
         BottomNavigationBarItem(
           label: 'profile',
           icon: SlideIn(

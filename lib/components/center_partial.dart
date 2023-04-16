@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/components/circle_btn.dart';
-import 'package:flutter_login/components/rounded_btn.dart';
-import 'package:flutter_login/theme/constants.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:obd/theme/constants.dart';
 
 class CenterPartial extends StatefulWidget {
   const CenterPartial({super.key});
@@ -46,8 +44,9 @@ class _CenterPartialState extends State<CenterPartial> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("center name",
-                            style: Theme.of(context).textTheme.headline1),
+                        Text(
+                          "center name",
+                        ),
                         Row(
                           children: [
                             Icon(Icons.star_border),

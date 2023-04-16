@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
+import 'package:obd/components/bottom_nav.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class HomePage extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -33,10 +32,7 @@ class HomePageState extends State<HomePage> {
           //Initialize the chart widget
           Padding(
             padding: EdgeInsets.only(top: 20, bottom: 10),
-            child: Text(
-              "Your Car Satatistics",
-              style: Theme.of(context).textTheme.headline1,
-            ),
+            child: Text("Your Car Satatistics"),
           ),
           Divider(),
           Row(
@@ -60,7 +56,7 @@ class HomePageState extends State<HomePage> {
               ),
               Expanded(
                   flex: 5,
-                 child: SfCircularChart(
+                  child: SfCircularChart(
                       title: ChartTitle(text: 'dolar set'),
                       legend: Legend(isVisible: true),
                       series: <PieSeries<_PieData, String>>[
@@ -93,7 +89,7 @@ class HomePageState extends State<HomePage> {
                     // Enable data label
                     dataLabelSettings: DataLabelSettings(isVisible: true))
               ]),
-          
+
           // Expanded(
           //   child: Padding(
           //     padding: const EdgeInsets.all(8.0),

@@ -1,5 +1,4 @@
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 Future<void> launchPhoneDialer(String contactNumber) async {
   final Uri _phoneUri = Uri(scheme: "tel", path: contactNumber);

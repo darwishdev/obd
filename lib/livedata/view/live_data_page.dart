@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login/authentication/authentication.dart';
-import 'package:flutter_login/centers/view/centers_page.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
-import 'package:flutter_login/components/fault_code.dart';
-import 'package:flutter_login/components/rounded_btn.dart';
-import 'package:flutter_login/connect/connect.dart';
-import 'package:flutter_login/report/report.dart';
-import 'package:flutter_login/theme/constants.dart';
+import 'package:obd/authentication/authentication.dart';
+import 'package:obd/components/bottom_nav.dart';
+import 'package:obd/components/fault_code.dart';
+import 'package:obd/components/rounded_btn.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class LiveData extends StatelessWidget {
@@ -107,7 +103,7 @@ class LiveData extends StatelessWidget {
                     },
                   ),
                   RoundedBtn(icon: 'assets/images/scan.svg', text: "Scan"),
-        
+
                   FaultCode(
                     isEmergency: true,
                   ),

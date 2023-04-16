@@ -1,12 +1,8 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
-import 'package:flutter_login/components/icon_btn.dart';
-import 'package:flutter_login/login/login.dart';
-import 'package:flutter_login/report/report.dart';
-import 'package:flutter_login/theme/constants.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:obd/components/bottom_nav.dart';
+import 'package:obd/report/report.dart';
+import 'package:obd/theme/constants.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
@@ -20,39 +16,28 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(12),
-          child: BlocProvider(
-            create: (context) {
-              return LoginBloc(
-                authenticationRepository:
-                    RepositoryProvider.of<AuthenticationRepository>(context),
-              );
-            },
-            child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30, bottom: 10),
-                      child: Text(
-                        "Your Scan history",
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Divider(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    HistoryTile(context, "1/05/2022 10:50:00" , "0" , "1"),
-                    HistoryTile(context, "12/06/2022 08:30:00" , "0" , "2"),
-                    HistoryTile(context, "18/08/2022 07:15:00" , "0" , "0"),
-                    HistoryTile(context, "29/08/2022 07:00:00" , "1" , "3")
-                    // FaultCode(color: Color(0xff1cb4bf),)
-                  ],
-                ),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30, bottom: 10),
+                    child: Text("Your Scan history"),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Divider(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  HistoryTile(context, "1/05/2022 10:50:00", "0", "1"),
+                  HistoryTile(context, "12/06/2022 08:30:00", "0", "2"),
+                  HistoryTile(context, "18/08/2022 07:15:00", "0", "0"),
+                  HistoryTile(context, "29/08/2022 07:00:00", "1", "3")
+                  // FaultCode(color: Color(0xff1cb4bf),)
+                ],
               ),
             ),
           ),
@@ -61,7 +46,8 @@ class HistoryPage extends StatelessWidget {
   }
 }
 
-GestureDetector HistoryTile(BuildContext context, String date , String emergencies , String errors) {
+GestureDetector HistoryTile(
+    BuildContext context, String date, String emergencies, String errors) {
   return GestureDetector(
     onTap: () {
       Navigator.push(
@@ -91,7 +77,6 @@ GestureDetector HistoryTile(BuildContext context, String date , String emergenci
                   ),
                   Text(
                     date,
-                    style: Theme.of(context).textTheme.headline2,
                   ),
                 ],
               ),
@@ -110,7 +95,7 @@ GestureDetector HistoryTile(BuildContext context, String date , String emergenci
                   ),
                   Text(
                     "${emergencies} emergencies - ",
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SvgPicture.asset(
                     "assets/images/alert.svg",
@@ -123,7 +108,7 @@ GestureDetector HistoryTile(BuildContext context, String date , String emergenci
                   ),
                   Text(
                     "${errors} error",
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),

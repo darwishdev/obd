@@ -1,15 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login/authentication/authentication.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
-import 'package:flutter_login/components/icon_btn.dart';
-import 'package:flutter_login/components/rounded_btn.dart';
-import 'package:flutter_login/connecting/connecting.dart';
-import 'package:flutter_login/livedata/view/live_data_page.dart';
-import 'package:flutter_login/theme/constants.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:obd/components/bottom_nav.dart';
+import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/livedata/view/live_data_page.dart';
 
+@RoutePage()
 class ConnectPage extends StatelessWidget {
   const ConnectPage({super.key});
 
@@ -26,8 +22,9 @@ class ConnectPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text("Before you connect",
-                  style: Theme.of(context).textTheme.headline1),
+              Text(
+                "Before you connect",
+              ),
               SizedBox(
                 height: 40,
               ),
@@ -90,9 +87,9 @@ class ConnectPage extends StatelessWidget {
               iconSize: 30,
               onPressed: () {
                 Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LiveData()),
-        );
+                  context,
+                  MaterialPageRoute(builder: (context) => LiveData()),
+                );
               },
               text: "connect",
             )),

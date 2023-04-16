@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login/authentication/authentication.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ConnectingPage extends StatelessWidget {
   const ConnectingPage({super.key});
@@ -26,23 +23,31 @@ class ConnectingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-           Text("Before you connect" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
-           SizedBox(height: 30,),
-           Text("1 - Plug in the adapter to the flutter_login port"),
-           SizedBox(height: 10,),
-           Text("2 - Turn on your vehivles engine"),
-           SizedBox(height: 10,),
-           Text("3 - Make sure that bluetooth is on")
+            Text(
+              "Before you connect",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text("1 - Plug in the adapter to the flutter_login port"),
+            SizedBox(
+              height: 10,
+            ),
+            Text("2 - Turn on your vehivles engine"),
+            SizedBox(
+              height: 10,
+            ),
+            Text("3 - Make sure that bluetooth is on")
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.red,
-        items:[
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label : "home" , icon: Icon(Icons.home)),
+      bottomNavigationBar:
+          BottomNavigationBar(backgroundColor: Colors.red, items: [
+        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
       ]),
     );
   }

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/centers/centers.dart';
-import 'package:flutter_login/components/circle_btn.dart';
-import 'package:flutter_login/components/icon_btn.dart';
-import 'package:flutter_login/components/rounded_btn.dart';
-import 'package:flutter_login/theme/constants.dart';
-import 'package:flutter_login/utils/helpers.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_login/components/slide_in.dart';
+import 'package:obd/centers/centers.dart';
+import 'package:obd/components/icon_btn.dart';
+import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/theme/constants.dart';
+import 'package:obd/utils/helpers.dart';
 
 class FaultCode extends StatefulWidget {
   final bool isEmergency;
@@ -36,14 +34,14 @@ class _FaultCodeState extends State<FaultCode> {
             );
     var headerText = widget.isEmergency ? "C1660 - Engine " : "P0132 - Engine ";
     var contentText = widget.isEmergency ? "Winch" : "centers";
-    var btnExpandedText = widget.isEmergency
-        ? "Call  emergency - Winch"
-        : "View nearest centers";
+    var btnExpandedText =
+        widget.isEmergency ? "Call  emergency - Winch" : "View nearest centers";
 
-    var gredientBg = widget.isEmergency ? AppTheme.redGradient : AppTheme().yellowGradient;
+    var gredientBg =
+        widget.isEmergency ? AppTheme.redGradient : AppTheme().yellowGradient;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20),
-      child :  Container(
+      child: Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           width: double.infinity,
           decoration: BoxDecoration(
@@ -54,63 +52,63 @@ class _FaultCodeState extends State<FaultCode> {
           child: Column(
             children: [
               GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _showContent = !_showContent;
-                            });
-                          },child : Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _showContent = !_showContent;
-                      });
-                    },
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(icon,
-                            width: 20, height: 20, color: Colors.white),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              headerText,
-                              style: Theme.of(context).textTheme.headline1
-                            ),
-                            if (!_showContent)
-                              Text(
-                                "header Text header Text ",
-                                style:     Theme.of(context).textTheme.bodyText2
-,
-                              ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  Row(
+                  onTap: () {
+                    setState(() {
+                      _showContent = !_showContent;
+                    });
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      if (!_showContent) IconBtn(icon: btnIcon , onPressed: (){
-                        print("call");
-                      },),
                       GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _showContent = !_showContent;
-                            });
-                          },
-                          child: Icon(_showContent
-                              ? Icons.arrow_drop_up
-                              : Icons.arrow_drop_down)),
+                        onTap: () {
+                          setState(() {
+                            _showContent = !_showContent;
+                          });
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(icon,
+                                width: 20, height: 20, color: Colors.white),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(headerText),
+                                if (!_showContent)
+                                  Text(
+                                    "header Text header Text ",
+                                  ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          if (!_showContent)
+                            IconBtn(
+                              icon: btnIcon,
+                              onPressed: () {
+                                print("call");
+                              },
+                            ),
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _showContent = !_showContent;
+                                });
+                              },
+                              child: Icon(_showContent
+                                  ? Icons.arrow_drop_up
+                                  : Icons.arrow_drop_down)),
+                        ],
+                      ),
                     ],
-                  ),
-                ],)
-              ),
+                  )),
               if (_showContent)
                 SizedBox(
                   height: 10,
@@ -138,8 +136,7 @@ class _FaultCodeState extends State<FaultCode> {
                         Flexible(
                           child: Text(
                             "C1660 engine trouble code is about Exhaust Gas Recirculation Sensor B Circuit High. O2 Sensor Heater Circuit Malfunction and Injection Pump Fuel Metering Control 'A' High (Cam/Rotor/Injector) causes most of code C1660",
-                                                           style:     Theme.of(context).textTheme.bodyText1,
-                                                           
+                            style: Theme.of(context).textTheme.bodyLarge,
                             maxLines: 4,
                           ),
                         ),

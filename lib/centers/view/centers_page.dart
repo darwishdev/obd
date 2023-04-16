@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login/authentication/authentication.dart';
-import 'package:flutter_login/components/bottom_nav.dart';
-import 'package:flutter_login/components/center_partial.dart';
-import 'package:flutter_login/components/fault_code.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:obd/components/bottom_nav.dart';
+import 'package:obd/components/center_partial.dart';
 
 class CentersPage extends StatelessWidget {
   const CentersPage({super.key});
@@ -35,7 +31,9 @@ class CentersPage extends StatelessWidget {
                   "Centers near you",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Divider(),
                 CenterPartial(),
                 CenterPartial(),
@@ -50,7 +48,7 @@ class CentersPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar:BottomNav(),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }
