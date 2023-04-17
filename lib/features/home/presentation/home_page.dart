@@ -4,8 +4,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -31,11 +30,11 @@ class HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(children: [
           //Initialize the chart widget
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 20, bottom: 10),
             child: Text("Your Car Satatistics"),
           ),
-          Divider(),
+          const Divider(),
           Row(
             children: [
               Expanded(
@@ -52,7 +51,7 @@ class HomeScreenState extends State<HomeScreen> {
                           yValueMapper: (_PieData data, _) => data.yData,
                           //  dataLabelMapper: (_PieData data, _) => data.text,
                           dataLabelSettings:
-                              DataLabelSettings(isVisible: true)),
+                              const DataLabelSettings(isVisible: true)),
                     ]),
               ),
               Expanded(
@@ -69,7 +68,7 @@ class HomeScreenState extends State<HomeScreen> {
                             yValueMapper: (_PieData data, _) => data.yData,
                             //  dataLabelMapper: (_PieData data, _) => data.text,
                             dataLabelSettings:
-                                DataLabelSettings(isVisible: true)),
+                                const DataLabelSettings(isVisible: true)),
                       ])),
             ],
           ),
@@ -88,7 +87,7 @@ class HomeScreenState extends State<HomeScreen> {
                     yValueMapper: (_SalesData sales, _) => sales.sales,
                     name: 'Speed',
                     // Enable data label
-                    dataLabelSettings: DataLabelSettings(isVisible: true))
+                    dataLabelSettings: const DataLabelSettings(isVisible: true))
               ]),
 
           // Expanded(

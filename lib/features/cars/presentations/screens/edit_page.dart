@@ -1,15 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:obd/components/rounded_btn.dart';
 import 'package:obd/theme/constants.dart';
 
-class EditCarPage extends StatefulWidget {
-  const EditCarPage({super.key});
-  @override
-  State<EditCarPage> createState() => _EditCarPageState();
-}
-
-class _EditCarPageState extends State<EditCarPage> {
-  int rating = 0;
+@RoutePage()
+class EditCarScreen extends StatelessWidget {
+  const EditCarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,27 +20,27 @@ class _EditCarPageState extends State<EditCarPage> {
               //   'assets/images/logo.png',
               //   height: 200,
               // ),
-              Text(
+              const Text(
                 "Edit Your Car",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Divider(),
-              SizedBox(
+              const Divider(),
+              const SizedBox(
                 height: 20,
               ),
               _BrandInput(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               _TypeInput(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               _YearInput(),
               // _ReviewInput(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               _SubmitButton(),
@@ -59,14 +55,14 @@ class _EditCarPageState extends State<EditCarPage> {
 class _YearInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // height: 80,
       child: DropdownButtonFormField<String>(
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
         ),
-        hint: Text("Model Year"),
+        hint: const Text("Model Year"),
         value: '2018',
         borderRadius: BorderRadius.circular(10),
         items: <String>['2017', '2018', '2019', '2020', '2021', '2022']
@@ -85,14 +81,14 @@ class _YearInput extends StatelessWidget {
 class _TypeInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // height: 80,
       child: DropdownButtonFormField<String>(
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
         ),
-        hint: Text("Your Car Type"),
+        hint: const Text("Your Car Type"),
         borderRadius: BorderRadius.circular(10),
         value: 'I20',
         items: <String>['VENUE', 'I20', 'TUCSON', 'ELENTRA', 'ACCENT']
@@ -111,14 +107,14 @@ class _TypeInput extends StatelessWidget {
 class _BrandInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // height: 80,
       child: DropdownButtonFormField<String>(
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
         ),
-        hint: Text("Car Brand"),
+        hint: const Text("Car Brand"),
         value: 'Hyundai',
         borderRadius: BorderRadius.circular(10),
         items: <String>['Hyundai', 'BMW', 'AUDI', 'NISSAN', 'TOYOTA']
@@ -159,8 +155,8 @@ class _SubmitButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Row(
-                  children: [
-                    const Icon(Icons.check_outlined),
+                  children: const [
+                    Icon(Icons.check_outlined),
                     Padding(
                         padding: EdgeInsets.only(left: 8.0),
                         child: Text(
