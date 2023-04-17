@@ -16,8 +16,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
     UiHelper.postBuildCallback((duration) {
-      _onRefresh();
+      Future.delayed(const Duration(seconds: 2), () {
+        _onRefresh();
+      });
     });
   }
 
@@ -33,6 +36,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset('assets/images/logo.png', height: 250);
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Image.asset('assets/images/logo.png', height: 300),
+      ),
+    );
   }
 }
