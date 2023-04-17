@@ -26,7 +26,6 @@ class UserRepositoryImpl implements UserRepository {
   Future<Either<Failure, UserInfoModel>> login(LoginParams params) async {
     try {
       final response = await _userRemoteDataSource.login(params);
-      print('response: $response');
       _userLocalDataSource.cashUserData(response);
       return Right(response);
     } catch (e) {

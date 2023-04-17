@@ -85,9 +85,9 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 40),
-                Text("User information"),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                const Text("User information"),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
                   child: Divider(),
                 ),
                 FormFieldWidget(
@@ -154,20 +154,20 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   labelText: "Password",
                 ),
                 const SizedBox(height: 20),
-                Text("Car information"),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                const Text("Car information"),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
                   child: Divider(),
                 ),
                 Consumer(builder: (context, ref, _) {
                   return Column(
                     children: [
-                      CarBrandsView(),
+                      const CarBrandsView(),
                       if (ref.watch(selectedCarBrandProvider) != null)
-                        CarModelsView(),
+                        const CarModelsView(),
                       if (ref.watch(selectedCarModelProvider) != null &&
                           ref.watch(selectedCarBrandProvider) != null)
-                        CarYearsView(),
+                        const CarYearsView(),
                     ],
                   );
                 }),

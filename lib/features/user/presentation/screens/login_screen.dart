@@ -81,7 +81,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   labelText: "Password",
                 ),
                 TextButton(
-                  child: Text("Don't have account? Sign up"),
+                  child: const Text("Don't have account? Sign up"),
                   onPressed: () => context.router.push(const RegisterRoute()),
                 ),
                 const SizedBox(height: 20),

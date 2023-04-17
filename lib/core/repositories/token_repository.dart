@@ -43,7 +43,6 @@ class TokenRepository {
   Future<void> saveUserAccess(UserInfoModel user) async {
     _authToken = user.loginInfo?.accessToken;
     _userInfo = user;
-    print('saveUserAccess: ${jsonEncode(user)}');
     await secureStorage.write(key: kUserInfo, value: jsonEncode(user));
   }
 
