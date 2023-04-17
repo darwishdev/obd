@@ -10,12 +10,12 @@ final carsUseCaseProvider =
     Provider<Cars>((ref) => Cars(ref.watch(carsRepositoryImpl)));
 
 class Cars implements UseCase<List<CarBrandsModel>?, NoParams> {
-  final CarsRepository _CarsRepository;
+  final CarsRepository _carsRepository;
 
-  Cars(this._CarsRepository);
+  Cars(this._carsRepository);
 
   @override
   Future<Either<Failure, List<CarBrandsModel>?>> call(NoParams params) async {
-    return _CarsRepository.getCars(params);
+    return _carsRepository.getCars(params);
   }
 }

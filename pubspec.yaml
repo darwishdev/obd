@@ -11,13 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  authentication_repository:
-    path: packages/authentication_repository
-  bloc: ^8.0.0
-  flutter_bloc: ^8.0.0
-  formz: ^0.4.0
-  user_repository:
-    path: packages/user_repository
   accordion: ^2.5.1
   show_up_animation: ^2.0.0
 
@@ -27,16 +20,16 @@ dependencies:
   animated_widgets: ^1.1.0
   responsive_framework: ^0.2.0
   cached_network_image: ^3.2.3
-  flutter_svg: ^2.0.4
-  syncfusion_flutter_gauges: ^21.1.38
-  syncfusion_flutter_charts: ^21.1.38
+  flutter_svg: ^2.0.5
+  syncfusion_flutter_gauges: ^21.1.39
+  syncfusion_flutter_charts: ^21.1.39
   flutter_rating_bar: ^4.0.1
   flutter_easyloading: ^3.0.5
   dropdown_search: ^5.0.6
 
 
   # Routing
-  auto_route: ^6.1.0
+  auto_route: ^6.2.0
 
   # API
   dio: ^5.0.2
@@ -69,13 +62,9 @@ dev_dependencies:
 
   build_runner: ^2.3.3
   json_serializable: ^6.6.1
-  auto_route_generator: ^6.1.0
+  auto_route_generator: ^6.2.0
 
   flutter_launcher_icons: "^0.13.0"
-
-  mocktail: ^0.3.0
-  bloc_test:
-    path: ./bloc_test
 
 flutter_icons:
   image_path: "assets/images/logo.png"
