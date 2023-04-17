@@ -17,7 +17,7 @@ class SlideIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShowUpAnimation(
-        animationDuration: Duration(seconds: 1),
+        animationDuration: const Duration(seconds: 1),
         curve: Curves.easeOut,
         delayStart: delay,
         direction: vertical ? Direction.vertical : Direction.horizontal,

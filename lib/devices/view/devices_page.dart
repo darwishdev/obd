@@ -18,11 +18,11 @@ class DevicesPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: const <Widget>[
             Text(
               "Before you connect",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -43,7 +43,7 @@ class DevicesPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar:
-          BottomNavigationBar(backgroundColor: Colors.red, items: [
+          BottomNavigationBar(backgroundColor: Colors.red, items: const [
         BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
         BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
         BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),

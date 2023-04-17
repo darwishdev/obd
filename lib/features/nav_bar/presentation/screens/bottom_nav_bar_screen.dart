@@ -10,7 +10,7 @@ class BottomNavBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [
+      routes: const [
         LiveDataRoute(),
         HomeRoute(),
         HistoryRoute(),

@@ -87,11 +87,11 @@ class FormFieldWidget extends StatelessWidget {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppDimensions.kMediumRadius),
-            borderSide: BorderSide(color: Colors.red),
+            borderSide: const BorderSide(color: Colors.red),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppDimensions.kMediumRadius),
-            borderSide: BorderSide(color: Colors.red),
+            borderSide: const BorderSide(color: Colors.red),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppDimensions.kMediumRadius),

@@ -20,7 +20,7 @@ class LiveDataScreen extends StatelessWidget {
       // ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +42,7 @@ class LiveDataScreen extends StatelessWidget {
                                 startWidth: 3,
                                 endWidth: 5,
                                 // color: Colors.red,
-                                gradient: SweepGradient(stops: [
+                                gradient: const SweepGradient(stops: [
                                   0.0,
                                   1.0
                                 ], colors: [
@@ -55,10 +55,10 @@ class LiveDataScreen extends StatelessWidget {
                               )
                             ]),
                         RadialAxis(
-                            axisLineStyle: AxisLineStyle(thickness: 10),
+                            axisLineStyle: const AxisLineStyle(thickness: 10),
                             showTicks: true,
                             maximum: 190,
-                            pointers: <GaugePointer>[
+                            pointers: const <GaugePointer>[
                               NeedlePointer(
                                   value: 120,
                                   animationDuration: 1000,
@@ -93,9 +93,9 @@ class LiveDataScreen extends StatelessWidget {
                     ));
                   },
                 ),
-                RoundedBtn(icon: 'assets/images/scan.svg', text: "Scan"),
+                const RoundedBtn(icon: 'assets/images/scan.svg', text: "Scan"),
 
-                FaultCode(
+                const FaultCode(
                   isEmergency: true,
                 ),
                 // FaultCode(color: Color(0xff1cb4bf),)

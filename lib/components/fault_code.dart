@@ -40,9 +40,9 @@ class _FaultCodeState extends State<FaultCode> {
     var gredientBg =
         widget.isEmergency ? AppTheme.redGradient : AppTheme().yellowGradient;
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -70,7 +70,7 @@ class _FaultCodeState extends State<FaultCode> {
                           children: [
                             SvgPicture.asset(icon,
                                 width: 20, height: 20, color: Colors.white),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Column(
@@ -79,7 +79,7 @@ class _FaultCodeState extends State<FaultCode> {
                               children: [
                                 Text(headerText),
                                 if (!_showContent)
-                                  Text(
+                                  const Text(
                                     "header Text header Text ",
                                   ),
                               ],
@@ -110,12 +110,12 @@ class _FaultCodeState extends State<FaultCode> {
                     ],
                   )),
               if (_showContent)
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               //  Divider(),
               if (_showContent)
-                Divider(
+                const Divider(
                   thickness: 1,
                 ),
               if (_showContent)
@@ -129,7 +129,7 @@ class _FaultCodeState extends State<FaultCode> {
                           height: 100,
                           color: Colors.white,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         // Text("Fault Code Title"),
@@ -152,10 +152,10 @@ class _FaultCodeState extends State<FaultCode> {
                             text: btnExpandedText,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        IconBtn(icon: "assets/images/google.svg")
+                        const IconBtn(icon: "assets/images/google.svg")
                       ],
                     ),
                   ],

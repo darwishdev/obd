@@ -9,7 +9,7 @@ ThemeData getThemeData(BuildContext context) {
       background: const Color(0xFF000000),
       brightness: Brightness.dark,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       displayLarge: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
@@ -24,7 +24,7 @@ ThemeData getThemeData(BuildContext context) {
       ),
     ),
     scaffoldBackgroundColor: Colors.black,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.black,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -32,7 +32,7 @@ ThemeData getThemeData(BuildContext context) {
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
-            side: BorderSide(color: Colors.transparent),
+            side: const BorderSide(color: Colors.transparent),
           ),
         ),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -45,17 +45,17 @@ ThemeData getThemeData(BuildContext context) {
         textStyle: MaterialStateProperty.resolveWith((states) {
           // If the button is pressed, return size 40, otherwise 20
           if (states.contains(MaterialState.pressed)) {
-            return TextStyle(fontSize: 40, color: Colors.white);
+            return const TextStyle(fontSize: 40, color: Colors.white);
           }
-          return TextStyle(fontSize: 20, color: Colors.white);
+          return const TextStyle(fontSize: 20, color: Colors.white);
         }),
         minimumSize: MaterialStateProperty.all(
-          Size(double.infinity, 40),
+          const Size(double.infinity, 40),
         ),
       ),
     ),
     primaryColor: Colors.black,
-    dividerColor: Color.fromARGB(78, 255, 255, 255),
+    dividerColor: const Color.fromARGB(78, 255, 255, 255),
 
     /* dark theme settings */
   );

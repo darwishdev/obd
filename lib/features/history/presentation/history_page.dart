@@ -22,15 +22,15 @@ class HistoryScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 10),
+                const Padding(
+                  padding: EdgeInsets.only(top: 30, bottom: 10),
                   child: Text("Your Scan history"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Divider(),
-                SizedBox(
+                const Divider(),
+                const SizedBox(
                   height: 10,
                 ),
                 HistoryTile(context, "1/05/2022 10:50:00", "0", "1"),
@@ -57,8 +57,8 @@ GestureDetector HistoryTile(
       );
     },
     child: Container(
-      margin: EdgeInsets.only(bottom: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
           boxShadow: [AppTheme.mainShadow],
           borderRadius: BorderRadius.circular(10),
@@ -72,8 +72,8 @@ GestureDetector HistoryTile(
             children: [
               Row(
                 children: [
-                  Icon(Icons.punch_clock_outlined),
-                  SizedBox(
+                  const Icon(Icons.punch_clock_outlined),
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
@@ -91,11 +91,11 @@ GestureDetector HistoryTile(
                     width: 15,
                     height: 15,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
-                    "${emergencies} emergencies - ",
+                    "$emergencies emergencies - ",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SvgPicture.asset(
@@ -104,11 +104,11 @@ GestureDetector HistoryTile(
                     width: 15,
                     height: 15,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
-                    "${errors} error",
+                    "$errors error",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],

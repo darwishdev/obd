@@ -20,8 +20,8 @@ class CircleBtn extends StatelessWidget {
       style: ButtonStyle(
         minimumSize:
             MaterialStateProperty.all(Size(size ?? 40.0, size ?? 40.0)),
-        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
-        shape: MaterialStateProperty.all(CircleBorder()),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+        shape: MaterialStateProperty.all(const CircleBorder()),
       ),
       child: SvgPicture.asset(icon,
           width: iconSize ?? 30.0,

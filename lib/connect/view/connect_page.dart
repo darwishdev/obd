@@ -16,19 +16,19 @@ class ConnectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "Before you connect",
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 40,
             ),
 
@@ -43,11 +43,11 @@ class ConnectPage extends StatelessWidget {
               color: Colors.white,
               width: 120,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             StepTile('1 - Plug in the adapter to the OBD port'),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
@@ -56,11 +56,11 @@ class ConnectPage extends StatelessWidget {
               color: Colors.white,
               width: 100,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             StepTile('2 - Turn on your vehivles engine'),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
 
@@ -69,11 +69,11 @@ class ConnectPage extends StatelessWidget {
               color: Colors.white,
               width: 100,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             StepTile('3 - Make sure that bluetooth is on'),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],
@@ -87,7 +87,7 @@ class ConnectPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LiveDataScreen()),
+                MaterialPageRoute(builder: (context) => const LiveDataScreen()),
               );
             },
             text: "connect",
@@ -97,8 +97,8 @@ class ConnectPage extends StatelessWidget {
 
   Container StepTile(String title) {
     return Container(
-        margin: EdgeInsets.only(bottom: 20),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: const EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           // boxShadow: [AppTheme.mainShadow],
           borderRadius: BorderRadius.circular(10),
@@ -106,7 +106,7 @@ class ConnectPage extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ));
   }
 }

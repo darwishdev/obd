@@ -20,11 +20,11 @@ class IconBtn extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                  color: Color.fromARGB(255, 42, 101, 150).withAlpha(150),
-                  offset: Offset(0, 4),
+                  color: const Color.fromARGB(255, 42, 101, 150).withAlpha(150),
+                  offset: const Offset(0, 4),
                   blurRadius: 5.0)
             ],
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               stops: [0.0, 1.0],

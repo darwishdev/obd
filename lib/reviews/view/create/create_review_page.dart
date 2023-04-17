@@ -10,10 +10,10 @@ class CreateReviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: const ReviewForm(),
+        padding: EdgeInsets.all(12),
+        child: ReviewForm(),
       ),
     );
   }

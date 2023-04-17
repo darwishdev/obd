@@ -24,21 +24,21 @@ class _ReviewFormState extends State<ReviewForm> {
             //   'assets/images/logo.png',
             //   height: 200,
             // ),
-            Text("Add New Review"),
-            SizedBox(
+            const Text("Add New Review"),
+            const SizedBox(
               height: 10,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 10,
             ),
             _CenterInput(),
             const Padding(padding: EdgeInsets.all(12)),
             _ReviewInput(),
             Container(
-              padding: EdgeInsets.only(top: 30),
-              child: const Text("Your Rate"),
+              padding: const EdgeInsets.only(top: 30),
               alignment: Alignment.topLeft,
+              child: const Text("Your Rate"),
             ),
             const Padding(padding: EdgeInsets.all(12)),
             StarRating(
@@ -57,14 +57,14 @@ class _ReviewFormState extends State<ReviewForm> {
 class _CenterInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // height: 80,
       child: DropdownButtonFormField<String>(
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
         ),
-        hint: Text("Center"),
+        hint: const Text("Center"),
         borderRadius: BorderRadius.circular(10),
         items: <String>['Center 1', 'Center 2', 'Center 3', 'Center 4']
             .map((String value) {
@@ -82,8 +82,8 @@ class _CenterInput extends StatelessWidget {
 class _ReviewInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      key: const Key('ReviewForm_ReviewInput_textField'),
+    return const TextField(
+      key: Key('ReviewForm_ReviewInput_textField'),
       maxLines: null,
       keyboardType: TextInputType.multiline,
       decoration: InputDecoration(
@@ -119,8 +119,8 @@ class _SubmitButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Row(
-                  children: [
-                    const Icon(Icons.check_outlined),
+                  children: const [
+                    Icon(Icons.check_outlined),
                     Padding(
                         padding: EdgeInsets.only(left: 8.0),
                         child: Text(

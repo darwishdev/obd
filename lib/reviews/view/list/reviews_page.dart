@@ -23,13 +23,13 @@ class ReviewsPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30, bottom: 10),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 30, bottom: 10),
                         child: Text(
                           "Your Rivews",
                         ),
@@ -47,11 +47,11 @@ class ReviewsPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Divider(),
-                SizedBox(
+                const Divider(),
+                const SizedBox(
                   height: 10,
                 ),
                 ReviewTile(
@@ -88,8 +88,8 @@ int random(int min, int max) {
 Container ReviewTile(
     BuildContext context, String name, String review, int rating) {
   return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
           boxShadow: [AppTheme.mainShadow],
           borderRadius: BorderRadius.circular(10),
@@ -101,21 +101,21 @@ Container ReviewTile(
           Row(
             children: [
               5 - rating > 2.5
-                  ? Icon(Icons.thumb_down_outlined)
-                  : Icon(Icons.thumb_up_outlined),
-              SizedBox(
+                  ? const Icon(Icons.thumb_down_outlined)
+                  : const Icon(Icons.thumb_up_outlined),
+              const SizedBox(
                 width: 5,
               ),
               Text(name),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          StarRating(rating: rating, color: Color.fromARGB(255, 200, 200, 6)),
+          StarRating(rating: rating, color: const Color.fromARGB(255, 200, 200, 6)),
           Text(
             review,
             overflow: TextOverflow.fade,

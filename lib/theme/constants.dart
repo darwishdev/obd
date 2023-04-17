@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static final mainGredient = LinearGradient(
+  static const mainGredient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     stops: [0.0, 1.0],
@@ -10,8 +10,8 @@ class AppTheme {
       Color.fromARGB(255, 26, 63, 94),
     ],
   );
-  static final mainBlue = Color.fromARGB(255, 26, 63, 94);
-  static final redGradient = LinearGradient(
+  static const mainBlue = Color.fromARGB(255, 26, 63, 94);
+  static const redGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     stops: [0.0, 1.0],
@@ -20,7 +20,7 @@ class AppTheme {
       Color.fromARGB(255, 95, 4, 4),
     ],
   );
-  var yellowGradient = LinearGradient(
+  var yellowGradient = const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     stops: [0.0, .9, 1],
@@ -30,9 +30,9 @@ class AppTheme {
       Color.fromARGB(255, 65, 179, 196),
     ],
   );
-  static final textColor = Color.fromARGB(255, 165, 164, 164);
+  static const textColor = Color.fromARGB(255, 165, 164, 164);
   static final mainShadow = BoxShadow(
-      color: Color.fromARGB(255, 42, 101, 150).withAlpha(150),
-      offset: Offset(0, 4),
+      color: const Color.fromARGB(255, 42, 101, 150).withAlpha(150),
+      offset: const Offset(0, 4),
       blurRadius: 5.0);
 }

@@ -15,7 +15,7 @@ class _CenterPartialState extends State<CenterPartial> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: GestureDetector(
         onTap: () {
           setState(() {
@@ -23,7 +23,7 @@ class _CenterPartialState extends State<CenterPartial> {
           });
         },
         child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
             width: double.infinity,
             decoration: BoxDecoration(
                 boxShadow: [AppTheme.mainShadow],
@@ -38,17 +38,17 @@ class _CenterPartialState extends State<CenterPartial> {
                       'assets/images/logo.png',
                       height: 50,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "center name",
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Icon(Icons.star_border),
                             Icon(Icons.star_border),
                             Icon(Icons.star_border),
@@ -68,7 +68,7 @@ class _CenterPartialState extends State<CenterPartial> {
                     // ),
                     SvgPicture.asset("assets/images/phone.svg",
                         width: 25.0, height: 25.0, color: Colors.white),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     SvgPicture.asset("assets/images/location.svg",
