@@ -47,11 +47,13 @@ class TokenRepository {
   }
 
   /// Read token from local storage.
-  Future<Map<String, dynamic>?> readUserAccess() async {
+  Future<UserInfoModel?> readUserAccess() async {
     try {
       final user = await secureStorage.read(key: kUserInfo);
       if (user == null) return null;
-      return jsonDecode(user);
+      _userInfo = UserInfoModel.fromJson(jsonDecode(user));
+      _authToken = _userInfo?.loginInfo?.accessToken;
+      return _userInfo;
     } on PlatformException {
       await secureStorage.delete(key: kUserInfo);
       return null;

@@ -6,7 +6,7 @@ import 'package:obd/features/user/data/models/user_info_model.dart';
 
 abstract class UserLocalDataSource {
   Future<void> cashUserData(UserInfoModel user);
-  Future<Map<String, dynamic>?> getUserData();
+  Future<UserInfoModel?> getUserData();
 }
 
 final userLocalDataSourceImpl = Provider<UserLocalDataSourceImpl>(
@@ -27,7 +27,7 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
   }
 
   @override
-  Future<Map<String, dynamic>?> getUserData() async {
+  Future<UserInfoModel?> getUserData() async {
     return _tokenRepository.readUserAccess();
   }
 }
