@@ -8,6 +8,7 @@ part of 'car_brands_model.dart';
 
 CarBrandsModel _$CarBrandsModelFromJson(Map<String, dynamic> json) =>
     CarBrandsModel(
+      carBrandId: json['carBrandId'] as int?,
       name: json['name'] as String?,
       models: (json['models'] as List<dynamic>?)
           ?.map((e) => CarModelsModel.fromJson(e as Map<String, dynamic>))
@@ -16,6 +17,7 @@ CarBrandsModel _$CarBrandsModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CarBrandsModelToJson(CarBrandsModel instance) =>
     <String, dynamic>{
+      'carBrandId': instance.carBrandId,
       'name': instance.name,
       'models': instance.models,
     };

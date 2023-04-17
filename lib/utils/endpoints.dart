@@ -3,4 +3,5 @@ class EndPoints {
   static const String login = "/UserLogin";
 
   static const String carBrandsList = "/CarBrandsList";
+  static const String carUpdate = "/CarUpdate";
 }

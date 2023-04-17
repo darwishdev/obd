@@ -50,9 +50,9 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               phone: _phoneController.text,
               email: _emailController.text,
               password: _passwordController.text,
-              carBrandModel: int.parse(
-                  ref.read(selectedCarModelProvider)!.carBrandModelId!),
-              carYear: int.parse(ref.read(selectedCarYearProvider)!),
+              carBrandModel:
+                  ref.read(selectedCarModelProvider)!.carBrandModelId!,
+              carYear: ref.read(selectedCarYearProvider)!,
             ),
           );
     }

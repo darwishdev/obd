@@ -11,7 +11,7 @@ class CarModelsView extends ConsumerWidget {
     this.value,
   }) : super(key: key);
 
-  final String? value;
+  final int? value;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,7 +31,18 @@ class CarModelsView extends ConsumerWidget {
         compareFn: (item, sItem) => item.name == sItem.name,
         itemAsString: (cars) => cars.name ?? '',
         items: ref.watch(selectedCarBrandProvider) ?? [],
+        value: value != null
+            ? getSelectedModel(ref.watch(selectedCarBrandProvider))
+            : null,
+        // value: value,
       ),
     );
+  }
+
+  CarModelsModel? getSelectedModel(List<CarModelsModel>? items) {
+    if (items != null) {
+      return items.firstWhere((e) => e.carBrandModelId == value);
+    }
+    return null;
   }
 }

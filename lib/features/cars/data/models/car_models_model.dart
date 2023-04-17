@@ -10,7 +10,7 @@ class CarModelsModel {
     this.years,
   });
 
-  final String? carBrandModelId;
+  final int? carBrandModelId;
   final String? name;
   final String? years;
 

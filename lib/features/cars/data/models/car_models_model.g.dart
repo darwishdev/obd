@@ -8,7 +8,7 @@ part of 'car_models_model.dart';
 
 CarModelsModel _$CarModelsModelFromJson(Map<String, dynamic> json) =>
     CarModelsModel(
-      carBrandModelId: json['carBrandModelId'] as String?,
+      carBrandModelId: json['carBrandModelId'] as int?,
       name: json['name'] as String?,
       years: json['years'] as String?,
     );

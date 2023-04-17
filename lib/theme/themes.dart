@@ -4,6 +4,10 @@ ThemeData getThemeData(BuildContext context) {
   // ThemeData
   return ThemeData(
     fontFamily: "Exo2",
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: Colors.white),
+    ),
     // visualDensity: VisualDensity.adaptivePlatformDensity,
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.grey).copyWith(
       background: const Color(0xFF000000),

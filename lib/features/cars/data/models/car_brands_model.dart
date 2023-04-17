@@ -6,10 +6,12 @@ part 'car_brands_model.g.dart';
 @JsonSerializable()
 class CarBrandsModel {
   CarBrandsModel({
+    this.carBrandId,
     this.name,
     this.models,
   });
 
+  final int? carBrandId;
   final String? name;
   final List<CarModelsModel>? models;
 

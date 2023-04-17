@@ -7,5 +7,4 @@ final selectedCarBrandProvider =
 final selectedCarModelProvider =
     StateProvider.autoDispose<CarModelsModel?>((ref) => null);
 
-final selectedCarYearProvider =
-    StateProvider.autoDispose<String?>((ref) => null);
+final selectedCarYearProvider = StateProvider.autoDispose<int?>((ref) => null);

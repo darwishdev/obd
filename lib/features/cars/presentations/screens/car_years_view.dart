@@ -10,7 +10,7 @@ class CarYearsView extends ConsumerWidget {
     this.value,
   }) : super(key: key);
 
-  final String? value;
+  final int? value;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,7 +23,8 @@ class CarYearsView extends ConsumerWidget {
         title: 'Car Year',
         validatorMessage: 'Please select car year',
         onChanged: (carModel) {
-          ref.watch(selectedCarYearProvider.notifier).state = carModel;
+          ref.watch(selectedCarYearProvider.notifier).state =
+              int.parse(carModel!);
         },
         borderColor: Colors.grey,
         showSelectedItems: true,
@@ -32,6 +33,7 @@ class CarYearsView extends ConsumerWidget {
         items:
             ref.watch(selectedCarModelProvider)?.years?.split(',').toList() ??
                 [],
+        value: value != null ? value!.toString() : null,
       ),
     );
   }

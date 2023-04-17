@@ -14,7 +14,7 @@ class CarBrandsView extends ConsumerStatefulWidget {
     this.value,
   }) : super(key: key);
 
-  final String? value;
+  final int? value;
   @override
   ConsumerState<CarBrandsView> createState() => _CarBrandsViewState();
 }
@@ -51,9 +51,22 @@ class _CarBrandsViewState extends ConsumerState<CarBrandsView> {
           compareFn: (item, sItem) => item.name == sItem.name,
           itemAsString: (cars) => cars.name ?? '',
           items: state.data,
+          value: widget.value != null ? getSelectedBrand(state.data) : null,
         ),
       );
     }
     return const SizedBox();
+  }
+
+  CarBrandsModel? getSelectedBrand(List<CarBrandsModel> brands) {
+    for (final brand in brands) {
+      if (brand.carBrandId == widget.value) {
+        Future(() {
+          ref.read(selectedCarBrandProvider.notifier).state = brand.models;
+        });
+        return brand;
+      }
+    }
+    return null;
   }
 }
