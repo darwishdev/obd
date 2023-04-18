@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:obd/core/repositories/token_repository.dart';
 import 'package:obd/features/user/presentation/provider/user_login_provider.dart';
 import 'package:obd/features/user/presentation/widgets/list_tile_lnk_widget.dart';
-import 'package:obd/reviews/view/view.dart';
 import 'package:obd/routes/app_router.gr.dart';
 
 @RoutePage()
@@ -68,13 +67,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   title: const Text("Your Reviews"),
                   trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReviewsPage()),
-                    );
-                  },
+                  onTap: () => context.router.push(const ReviewsRoute()),
                 ),
               ),
               const Divider(),
@@ -91,13 +84,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   title: const Text("Add Review"),
                   trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CreateReviewPage()),
-                    );
-                  },
+                  onTap: () => context.router.push(CreateReviewRoute()),
                 ),
               ),
               const Divider(),

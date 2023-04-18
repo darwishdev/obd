@@ -13,6 +13,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: LoginRoute.page),
     AutoRoute(page: RegisterRoute.page),
     AutoRoute(page: EditCarRoute.page),
+    AutoRoute(page: ReviewsRoute.page),
     AutoRoute(page: ConnectPage.page),
     AutoRoute(
       page: BottomNavBarRoute.page,
@@ -23,5 +24,6 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: ProfileRoute.page),
       ],
     ),
+    AutoRoute(page: CreateReviewRoute.page),
   ];
 }

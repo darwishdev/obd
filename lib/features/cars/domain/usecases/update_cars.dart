@@ -21,13 +21,11 @@ class UpdateCar implements UseCase<bool, UpdateCarParams> {
 }
 
 class UpdateCarParams {
-  final int carId;
-  final int carBrandModel;
+  final int carBrandModelId;
   final int carYear;
 
   const UpdateCarParams({
-    required this.carId,
-    required this.carBrandModel,
+    required this.carBrandModelId,
     required this.carYear,
   });
 }
