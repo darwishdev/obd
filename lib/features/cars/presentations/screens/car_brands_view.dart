@@ -44,7 +44,7 @@ class _CarBrandsViewState extends ConsumerState<CarBrandsView> {
           title: 'Car Brand',
           validatorMessage: 'Please select car brand',
           onChanged: (car) {
-            ref.watch(selectedCarBrandProvider.notifier).state = car?.models;
+            ref.watch(selectedCarBrandProvider.notifier).state = car;
           },
           borderColor: Colors.grey,
           showSelectedItems: true,
@@ -62,7 +62,7 @@ class _CarBrandsViewState extends ConsumerState<CarBrandsView> {
     for (final brand in brands) {
       if (brand.carBrandId == widget.value) {
         Future(() {
-          ref.read(selectedCarBrandProvider.notifier).state = brand.models;
+          ref.read(selectedCarBrandProvider.notifier).state = brand;
         });
         return brand;
       }

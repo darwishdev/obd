@@ -30,9 +30,9 @@ class CarModelsView extends ConsumerWidget {
         showSelectedItems: true,
         compareFn: (item, sItem) => item.name == sItem.name,
         itemAsString: (cars) => cars.name ?? '',
-        items: ref.watch(selectedCarBrandProvider) ?? [],
+        items: ref.watch(selectedCarBrandProvider)?.models ?? [],
         value: value != null
-            ? getSelectedModel(ref.watch(selectedCarBrandProvider))
+            ? getSelectedModel(ref.watch(selectedCarBrandProvider)?.models)
             : null,
         // value: value,
       ),
@@ -40,7 +40,8 @@ class CarModelsView extends ConsumerWidget {
   }
 
   CarModelsModel? getSelectedModel(List<CarModelsModel>? items) {
-    if (items != null) {
+    print('value: ${value}');
+    if (items != null && items.isNotEmpty) {
       return items.firstWhere((e) => e.carBrandModelId == value);
     }
     return null;

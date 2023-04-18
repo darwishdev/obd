@@ -21,7 +21,7 @@ class CarsRemoteDataSourceImpl implements CarsRemoteDataSource {
   @override
   Future<List<CarBrandsModel>?> getCars(NoParams params) async {
     final response = await _dioClient.dio.post(
-      EndPoints.carBrandsList,
+      EndPoints.carBrands,
       data: {},
     );
     final cars = <CarBrandsModel>[];
@@ -36,9 +36,8 @@ class CarsRemoteDataSourceImpl implements CarsRemoteDataSource {
     final response = await _dioClient.dio.post(
       EndPoints.carUpdate,
       data: {
-        'car_id': params.carId,
-        'car_brand_model': params.carBrandModel,
-        'car_year': params.carYear,
+        'car_brand_model_id': params.carBrandModelId,
+        'model_year': params.carYear,
       },
     );
     return true;
