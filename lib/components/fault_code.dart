@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:obd/centers/centers.dart';
 import 'package:obd/components/icon_btn.dart';
 import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/features/history/presentation/centers_page.dart';
 import 'package:obd/theme/constants.dart';
 import 'package:obd/utils/helpers.dart';
 
