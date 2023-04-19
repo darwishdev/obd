@@ -5,12 +5,7 @@ import 'package:obd/features/cars/presentations/provider/selected_car_provider.d
 import 'package:obd/theme/dimensions.dart';
 
 class CarYearsView extends ConsumerWidget {
-  const CarYearsView({
-    Key? key,
-    this.value,
-  }) : super(key: key);
-
-  final int? value;
+  const CarYearsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,8 +18,9 @@ class CarYearsView extends ConsumerWidget {
         title: 'Car Year',
         validatorMessage: 'Please select car year',
         onChanged: (carModel) {
+          if (carModel == null) return;
           ref.watch(selectedCarYearProvider.notifier).state =
-              int.parse(carModel!);
+              int.parse(carModel);
         },
         borderColor: Colors.grey,
         showSelectedItems: true,
@@ -33,7 +29,6 @@ class CarYearsView extends ConsumerWidget {
         items:
             ref.watch(selectedCarModelProvider)?.years?.split(',').toList() ??
                 [],
-        value: value != null ? value!.toString() : null,
       ),
     );
   }

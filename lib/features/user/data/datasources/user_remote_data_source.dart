@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:obd/core/usecases/usecase.dart';
 import 'package:obd/features/user/data/models/user_info_model.dart';
 import 'package:obd/features/user/domain/usecases/login.dart';
 import 'package:obd/features/user/domain/usecases/register.dart';
@@ -7,6 +8,7 @@ import 'package:obd/utils/endpoints.dart';
 
 abstract class UserRemoteDataSource {
   Future<UserInfoModel> login(LoginParams params);
+  Future<UserInfoModel> authorize(NoParams params);
   Future<UserInfoModel> register(RegisterParams params);
 }
 
@@ -47,6 +49,15 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       },
     );
 
+    return UserInfoModel.fromJson(response.data);
+  }
+
+  @override
+  Future<UserInfoModel> authorize(NoParams params) async {
+    final response = await _dioClient.dio.post(
+      EndPoints.userAuthorize,
+      data: {},
+    );
     return UserInfoModel.fromJson(response.data);
   }
 }

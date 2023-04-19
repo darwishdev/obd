@@ -1,15 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:obd/components/rounded_btn.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:obd/core/models/view_states.dart';
 import 'package:obd/core/repositories/token_repository.dart';
-import 'package:obd/features/cars/domain/usecases/update_cars.dart';
-import 'package:obd/features/cars/presentations/provider/selected_car_provider.dart';
 import 'package:obd/features/cars/presentations/provider/update_car_provider.dart';
-import 'package:obd/features/cars/presentations/screens/car_brands_view.dart';
-import 'package:obd/features/cars/presentations/screens/car_models_view.dart';
-import 'package:obd/features/cars/presentations/screens/car_years_view.dart';
+import 'package:obd/features/user/presentation/provider/authorize_provider.dart';
+import 'package:obd/features/user/presentation/screens/edit_car_model_screen.dart';
 import 'package:obd/utils/ui_helper.dart';
 
 @RoutePage()
@@ -30,6 +27,7 @@ class EditCarScreen extends ConsumerWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Car updated successfully')),
         );
+        ref.read(authorizeProvider.notifier).authorize();
       } else if (state is ErrorViewState) {
         context.popRoute();
         ScaffoldMessenger.of(context).showSnackBar(
@@ -38,57 +36,89 @@ class EditCarScreen extends ConsumerWidget {
       }
     });
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          children: const [
-            Text(
-              'Edit Car',
-              style: TextStyle(color: Colors.white),
-            ),
-            Text(
-              'Edit your car details',
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ],
+      appBar: AppBar(),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => showBarModalBottomSheet(
+          context: context,
+          backgroundColor: Colors.grey[900],
+          builder: (context) => const EditCarModelScreen(),
         ),
+        label: const Text("Update Car"),
+        icon: const Icon(Icons.edit),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.grey[900],
+        ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            CarBrandsView(
-              value: ref.watch(selectedCarBrandProvider)?.carBrandId ??
-                  repo.userInfo?.car?.carBrandId,
+            Text(
+              'Car Information',
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            if (ref.watch(selectedCarBrandProvider) != null)
-              CarModelsView(
-                value: ref.watch(selectedCarModelProvider)?.carBrandModelId ??
-                    repo.userInfo?.car?.carBrandModelId,
-              ),
-            if (ref.watch(selectedCarModelProvider) != null||
-                repo.userInfo?.car?.carBrandModelId!=null)
-              CarYearsView(
-                value: ref.watch(selectedCarYearProvider) ??
-                    repo.userInfo?.car?.modelYear,
-              ),
-            const SizedBox(height: 40),
-            RoundedBtn(
-              icon: "assets/images/submit.svg",
-              text: "Submit",
-              iconSize: 20,
-              onPressed: () {
-                if (ref.watch(selectedCarModelProvider) != null &&
-                    ref.watch(selectedCarYearProvider) != null) {
-                  ref.read(updateCarProvider.notifier).updateCar(
-                        UpdateCarParams(
-                          carBrandModelId: ref
-                              .read(selectedCarModelProvider)!
-                              .carBrandModelId!,
-                          carYear: ref.read(selectedCarYearProvider)!,
-                        ),
-                      );
-                }
-              },
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                const Icon(Icons.directions_car),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Brand:',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    Text(
+                      repo.userInfo?.car?.brandName ?? '-',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 25),
+            Row(
+              children: [
+                const Icon(Icons.directions_car),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Model:',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    Text(
+                      repo.userInfo?.car?.brandModelName ?? '-',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 25),
+            Row(
+              children: [
+                const Icon(Icons.calendar_today),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Year:',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    Text(
+                      repo.userInfo?.car?.modelYear?.toString() ?? '-',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
