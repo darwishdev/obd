@@ -10,19 +10,20 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
-import 'package:obd/components/connect_page.dart' as _i10;
+import 'package:obd/components/connect_page.dart' as _i12;
 import 'package:obd/core/splash_page.dart' as _i1;
 import 'package:obd/features/cars/presentations/screens/edit_car_screen.dart'
     as _i9;
-import 'package:obd/features/history/presentation/history_screen.dart' as _i8;
 import 'package:obd/features/home/presentation/home_page.dart' as _i2;
 import 'package:obd/features/livedata/presentation/live_data_page.dart' as _i7;
 import 'package:obd/features/nav_bar/presentation/screens/bottom_nav_bar_screen.dart'
     as _i6;
 import 'package:obd/features/reviews/presentation/screens/create_review_screen.dart'
-    as _i12;
+    as _i10;
 import 'package:obd/features/reviews/presentation/screens/reviews_screen.dart'
     as _i11;
+import 'package:obd/features/sessions/presentation/screens/history_screen.dart'
+    as _i8;
 import 'package:obd/features/user/presentation/screens/login_screen.dart'
     as _i5;
 import 'package:obd/features/user/presentation/screens/profile_screen.dart'
@@ -89,10 +90,15 @@ abstract class $AppRouter extends _i13.RootStackRouter {
         child: const _i9.EditCarScreen(),
       );
     },
-    ConnectPage.name: (routeData) {
+    CreateReviewRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateReviewRouteArgs>(
+          orElse: () => const CreateReviewRouteArgs());
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.ConnectPage(),
+        child: _i10.CreateReviewScreen(
+          key: args.key,
+          isProfile: args.isProfile,
+        ),
       );
     },
     ReviewsRoute.name: (routeData) {
@@ -101,15 +107,10 @@ abstract class $AppRouter extends _i13.RootStackRouter {
         child: const _i11.ReviewsScreen(),
       );
     },
-    CreateReviewRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateReviewRouteArgs>(
-          orElse: () => const CreateReviewRouteArgs());
+    ConnectPage.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i12.CreateReviewScreen(
-          key: args.key,
-          isProfile: args.isProfile,
-        ),
+        child: const _i12.ConnectPage(),
       );
     },
   };
@@ -242,35 +243,7 @@ class EditCarRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.ConnectPage]
-class ConnectPage extends _i13.PageRouteInfo<void> {
-  const ConnectPage({List<_i13.PageRouteInfo>? children})
-      : super(
-          ConnectPage.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ConnectPage';
-
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i11.ReviewsScreen]
-class ReviewsRoute extends _i13.PageRouteInfo<void> {
-  const ReviewsRoute({List<_i13.PageRouteInfo>? children})
-      : super(
-          ReviewsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ReviewsRoute';
-
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i12.CreateReviewScreen]
+/// [_i10.CreateReviewScreen]
 class CreateReviewRoute extends _i13.PageRouteInfo<CreateReviewRouteArgs> {
   CreateReviewRoute({
     _i14.Key? key,
@@ -305,4 +278,32 @@ class CreateReviewRouteArgs {
   String toString() {
     return 'CreateReviewRouteArgs{key: $key, isProfile: $isProfile}';
   }
+}
+
+/// generated route for
+/// [_i11.ReviewsScreen]
+class ReviewsRoute extends _i13.PageRouteInfo<void> {
+  const ReviewsRoute({List<_i13.PageRouteInfo>? children})
+      : super(
+          ReviewsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewsRoute';
+
+  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i12.ConnectPage]
+class ConnectPage extends _i13.PageRouteInfo<void> {
+  const ConnectPage({List<_i13.PageRouteInfo>? children})
+      : super(
+          ConnectPage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ConnectPage';
+
+  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
 }

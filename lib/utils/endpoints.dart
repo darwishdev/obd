@@ -10,4 +10,7 @@ class EndPoints {
   static const String reviews = "/ReviewsList";
 
   static const String centers = "/CentersList";
+
+  static const String sessions = "/SessionsList";
+  static const String sessionCodes = "/SessionGetCodes";
 }
