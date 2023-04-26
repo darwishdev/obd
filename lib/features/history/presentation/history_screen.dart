@@ -8,10 +8,6 @@ import 'package:obd/theme/constants.dart';
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const HistoryScreen());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

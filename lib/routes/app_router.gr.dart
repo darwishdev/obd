@@ -10,11 +10,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
+import 'package:obd/components/connect_page.dart' as _i10;
 import 'package:obd/core/splash_page.dart' as _i1;
 import 'package:obd/features/cars/presentations/screens/edit_car_screen.dart'
     as _i9;
-import 'package:obd/features/history/presentation/connect_page.dart' as _i10;
-import 'package:obd/features/history/presentation/history_page.dart' as _i8;
+import 'package:obd/features/history/presentation/history_screen.dart' as _i8;
 import 'package:obd/features/home/presentation/home_page.dart' as _i2;
 import 'package:obd/features/livedata/presentation/live_data_page.dart' as _i7;
 import 'package:obd/features/nav_bar/presentation/screens/bottom_nav_bar_screen.dart'

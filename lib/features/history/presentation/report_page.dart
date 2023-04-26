@@ -4,10 +4,6 @@ import 'package:obd/components/fault_code.dart';
 class ReportPage extends StatelessWidget {
   const ReportPage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const ReportPage());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
