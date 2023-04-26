@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:obd/components/fault_code.dart';
 import 'package:obd/components/rounded_btn.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -95,9 +94,6 @@ class LiveDataScreen extends StatelessWidget {
                 ),
                 const RoundedBtn(icon: 'assets/images/scan.svg', text: "Scan"),
 
-                const FaultCode(
-                  isEmergency: true,
-                ),
                 // FaultCode(color: Color(0xff1cb4bf),)
               ],
             ),

@@ -5,6 +5,6 @@ class HelperFunctions {
   static String formatDate(String? date) {
     return date == null
         ? ''
-        : DateFormat('yyyy/MM/dd').format(DateTime.parse(date));
+        : DateFormat('MMMM dd yyyy').add_Hm().format(DateTime.parse(date));
   }
 }

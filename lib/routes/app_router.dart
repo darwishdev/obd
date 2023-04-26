@@ -25,5 +25,6 @@ class AppRouter extends $AppRouter {
       ],
     ),
     AutoRoute(page: CreateReviewRoute.page),
+    AutoRoute(page: ReportRoute.page),
   ];
 }

@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:obd/components/fault_code.dart';
 
-class ReportPage extends StatelessWidget {
-  const ReportPage({super.key});
+@RoutePage()
+class ReportScreen extends StatelessWidget {
+  const ReportScreen(this.sessionId, {super.key});
 
+  final int? sessionId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
