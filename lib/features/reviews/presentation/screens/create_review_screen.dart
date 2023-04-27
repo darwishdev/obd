@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/components/rounded_btn.dart';
@@ -41,11 +42,7 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
       return;
     }
     if (ref.read(selectedRateProvider.notifier).state == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please select rate'),
-        ),
-      );
+      EasyLoading.showError('Please select rate');
       return;
     }
     ref.read(reviewCenterProvider.notifier).reviewCenter(
@@ -69,14 +66,10 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
         if (!widget.isProfile) {
           ref.read(reviewsProvider.notifier).fetchReviews();
         }
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Review successfully')),
-        );
+        EasyLoading.showSuccess('Review successfully');
       } else if (state is ErrorViewState) {
         context.popRoute();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(state.errorMessage)),
-        );
+        EasyLoading.showError(state.errorMessage);
       }
     });
     return Scaffold(

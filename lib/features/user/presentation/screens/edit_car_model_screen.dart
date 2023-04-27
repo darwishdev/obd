@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/components/rounded_btn.dart';
 import 'package:obd/features/cars/domain/usecases/update_cars.dart';
@@ -33,11 +34,7 @@ class EditCarModelScreen extends ConsumerWidget {
             onPressed: () {
               if (ref.watch(selectedCarModelProvider) == null ||
                   ref.watch(selectedCarYearProvider) == null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Please select car model and year'),
-                  ),
-                );
+                EasyLoading.showError('Please select car model and year');
                 return;
               }
               ref.read(updateCarProvider.notifier).updateCar(

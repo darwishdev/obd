@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:obd/core/models/view_states.dart';
@@ -25,15 +26,11 @@ class EditCarScreen extends ConsumerWidget {
           Navigator.of(context)
             ..pop()
             ..pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Car updated successfully')),
-          );
+          EasyLoading.showSuccess('Car updated successfully');
         });
       } else if (state is ErrorViewState) {
         context.popRoute();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(state.errorMessage)),
-        );
+        EasyLoading.showError(state.errorMessage);
       }
     });
     return Scaffold(
