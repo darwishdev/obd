@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:obd/components/centers_page.dart';
 import 'package:obd/components/icon_btn.dart';
 import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/features/sessions/data/models/session_code_model.dart';
+import 'package:obd/features/sessions/presentation/screens/centers_page.dart';
 import 'package:obd/theme/constants.dart';
 import 'package:obd/utils/helpers.dart';
 
 class FaultCode extends StatefulWidget {
-  final bool isEmergency;
-  const FaultCode({super.key, required this.isEmergency});
+  final SessionCodeModel model;
+  const FaultCode(this.model, {super.key});
 
   @override
   State<FaultCode> createState() => _FaultCodeState();
@@ -19,28 +20,32 @@ class _FaultCodeState extends State<FaultCode> {
 
   @override
   Widget build(BuildContext context) {
-    var icon = widget.isEmergency
+    var icon = widget.model.isEmergency ?? false
         ? "assets/images/em-alert.svg"
         : "assets/images/alert.svg";
-    var btnIcon = widget.isEmergency
+    var btnIcon = widget.model.isEmergency ?? false
         ? "assets/images/winch.svg"
         : "assets/images/centers.svg";
-    var btnText = widget.isEmergency ? "Winch" : "centers";
-    var btnAction = widget.isEmergency
+    var btnText = widget.model.isEmergency ?? false ? "Winch" : "centers";
+    var btnAction = widget.model.isEmergency ?? false
         ? () => launchPhoneDialer("+201022052546")
         : () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const CentersPage()),
             );
-    var headerText = widget.isEmergency ? "C1660 - Engine " : "P0132 - Engine ";
-    var contentText = widget.isEmergency ? "Winch" : "centers";
-    var btnExpandedText =
-        widget.isEmergency ? "Call  emergency - Winch" : "View nearest centers";
+    var headerText = widget.model.isEmergency ?? false
+        ? "C1660 - Engine "
+        : "P0132 - Engine ";
+    var contentText = widget.model.isEmergency ?? false ? "Winch" : "centers";
+    var btnExpandedText = widget.model.isEmergency ?? false
+        ? "Call  emergency - Winch"
+        : "View nearest centers";
 
-    var gredientBg =
-        widget.isEmergency ? AppTheme.redGradient : AppTheme().yellowGradient;
+    var gredientBg = widget.model.isEmergency ?? false
+        ? AppTheme.redGradient
+        : AppTheme.yellowGradient;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           width: double.infinity,

@@ -10,7 +10,9 @@ class AppTheme {
       Color.fromARGB(255, 26, 63, 94),
     ],
   );
+
   static const mainBlue = Color.fromARGB(255, 26, 63, 94);
+
   static const redGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -20,7 +22,8 @@ class AppTheme {
       Color.fromARGB(255, 95, 4, 4),
     ],
   );
-  var yellowGradient = const LinearGradient(
+
+  static const yellowGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     stops: [0.0, .9, 1],
@@ -30,9 +33,12 @@ class AppTheme {
       Color.fromARGB(255, 65, 179, 196),
     ],
   );
+
   static const textColor = Color.fromARGB(255, 165, 164, 164);
+
   static final mainShadow = BoxShadow(
-      color: const Color.fromARGB(255, 42, 101, 150).withAlpha(150),
-      offset: const Offset(0, 4),
-      blurRadius: 5.0);
+    color: const Color.fromARGB(255, 42, 101, 150).withAlpha(150),
+    offset: const Offset(0, 4),
+    blurRadius: 5.0,
+  );
 }

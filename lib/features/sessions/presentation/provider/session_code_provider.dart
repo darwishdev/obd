@@ -14,7 +14,7 @@ class SessionCodesProvider extends BaseProvider<List<SessionCodeModel>> {
 
   SessionCodesProvider(this._sessionCode);
 
-  Future<void> fetchSessionCodes({int? sessionId}) async {
+  Future<void> fetchSessionCodes(int? sessionId) async {
     setLoadingState();
     final response = await _sessionCode.call(
       SessionCodeParams(sessionId: sessionId),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:obd/components/center_partial.dart';
+import 'package:obd/features/sessions/presentation/screens/center_partial.dart';
 
 class CentersPage extends StatelessWidget {
   const CentersPage({super.key});

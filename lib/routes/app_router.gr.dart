@@ -24,7 +24,7 @@ import 'package:obd/features/reviews/presentation/screens/reviews_screen.dart'
     as _i12;
 import 'package:obd/features/sessions/presentation/screens/history_screen.dart'
     as _i8;
-import 'package:obd/features/sessions/presentation/screens/report_page.dart'
+import 'package:obd/features/sessions/presentation/screens/report_screen.dart'
     as _i9;
 import 'package:obd/features/user/presentation/screens/login_screen.dart'
     as _i5;

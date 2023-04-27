@@ -27,6 +27,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   dropdown_search: ^5.0.6
   modal_bottom_sheet: ^3.0.0-pre
+  grouped_list: ^5.1.2
 
 
   # Routing
