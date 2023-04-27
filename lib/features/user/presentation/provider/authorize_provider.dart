@@ -6,7 +6,7 @@ import 'package:obd/features/user/data/models/user_info_model.dart';
 import 'package:obd/features/user/domain/usecases/authorize.dart';
 
 final authorizeProvider =
-    StateNotifierProvider.autoDispose<AuthorizeProvider, ViewState>((ref) {
+    StateNotifierProvider<AuthorizeProvider, ViewState>((ref) {
   return AuthorizeProvider(ref.watch(authorizeUseCaseProvider));
 });
 

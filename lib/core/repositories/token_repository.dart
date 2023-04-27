@@ -9,13 +9,11 @@ import 'package:obd/features/user/data/models/user_info_model.dart';
 import 'package:obd/services/secure_storage.dart';
 import 'package:obd/utils/storage_keys_constants.dart';
 
-final tokenRepositoryProvider = Provider(
-  (ref) => TokenRepository(
-    ref.read(secureStorageProvider),
-  ),
+final tokenRepositoryProvider = ChangeNotifierProvider(
+  (ref) => TokenRepository(ref.read(secureStorageProvider)),
 );
 
-class TokenRepository {
+class TokenRepository extends ChangeNotifier {
   //* Dependency
   final FlutterSecureStorage secureStorage;
 
@@ -43,6 +41,7 @@ class TokenRepository {
   Future<void> saveUserAccess(UserInfoModel user) async {
     _authToken = user.loginInfo?.accessToken;
     _userInfo = user;
+    notifyListeners();
     await secureStorage.write(key: kUserInfo, value: jsonEncode(user));
   }
 

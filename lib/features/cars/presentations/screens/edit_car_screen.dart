@@ -17,17 +17,18 @@ class EditCarScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final repo = ref.watch(tokenRepositoryProvider);
 
-    ref.listen(updateCarProvider, (previous, state) {
+    ref.listen(updateCarProvider, (previous, state) async {
       if (state is LoadingViewState) {
         UiHelper.showLoadingDialog(context);
       } else if (state is LoadedViewState) {
-        Navigator.of(context)
-          ..pop()
-          ..pop();
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Car updated successfully')),
-        );
-        ref.read(authorizeProvider.notifier).authorize();
+        await ref.read(authorizeProvider.notifier).authorize().whenComplete(() {
+          Navigator.of(context)
+            ..pop()
+            ..pop();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Car updated successfully')),
+          );
+        });
       } else if (state is ErrorViewState) {
         context.popRoute();
         ScaffoldMessenger.of(context).showSnackBar(
