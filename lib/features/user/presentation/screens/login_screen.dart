@@ -77,6 +77,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     }
                     return null;
                   },
+                  obscureText: true,
                   prefixWidget: const Icon(Icons.lock_outline),
                   labelText: "Password",
                 ),
