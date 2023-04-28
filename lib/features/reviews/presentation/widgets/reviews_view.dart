@@ -9,8 +9,10 @@ import 'package:obd/utils/ui_helper.dart';
 class ReviewsView extends ConsumerStatefulWidget {
   const ReviewsView({
     Key? key,
+    this.centerID,
   }) : super(key: key);
 
+  final int? centerID;
   @override
   ConsumerState<ReviewsView> createState() => _ReviewsViewState();
 }
@@ -20,7 +22,9 @@ class _ReviewsViewState extends ConsumerState<ReviewsView> {
   void initState() {
     super.initState();
     UiHelper.postBuildCallback((p0) {
-      ref.read(reviewsProvider.notifier).fetchReviews();
+      ref.read(reviewsProvider.notifier).fetchReviews(
+            centerID: widget.centerID,
+          );
     });
   }
 

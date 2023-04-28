@@ -25,6 +25,7 @@ class EditCarScreen extends ConsumerWidget {
         await ref.read(authorizeProvider.notifier).authorize().whenComplete(() {
           Navigator.of(context)
             ..pop()
+            ..pop()
             ..pop();
           EasyLoading.showSuccess('Car updated successfully');
         });

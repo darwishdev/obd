@@ -11,7 +11,7 @@ import 'package:obd/features/centers/presentation/widgets/centers_drop_down_widg
 import 'package:obd/features/reviews/domain/usecases/review_center.dart';
 import 'package:obd/features/reviews/presentation/provider/review_center_provider.dart';
 import 'package:obd/features/reviews/presentation/provider/reviews_provider.dart';
-import 'package:obd/features/reviews/presentation/provider/selected_rate_part_provider.dart';
+import 'package:obd/features/reviews/presentation/provider/selected_rate_provider.dart';
 import 'package:obd/theme/dimensions.dart';
 import 'package:obd/utils/ui_helper.dart';
 
