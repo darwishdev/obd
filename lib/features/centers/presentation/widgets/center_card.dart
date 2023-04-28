@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:obd/core/widgets/icon_btn.dart';
 import 'package:obd/features/centers/data/models/center_model.dart';
 import 'package:obd/theme/constants.dart';
 import 'package:obd/utils/link_launcher.dart';
@@ -23,7 +24,7 @@ class CenterCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         leading: CircleAvatar(
-          radius: 30,
+          radius: 25,
           backgroundColor: Colors.white,
           child: ClipOval(
             child: Image.network(
@@ -32,15 +33,7 @@ class CenterCard extends StatelessWidget {
               width: 60,
               height: 60,
               errorBuilder: (context, error, stackTrace) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Image.network(
-                    'https://static.exploremelon.com/carbrain/static-center-logo.png.png',
-                    fit: BoxFit.cover,
-                    width: 60,
-                    height: 60,
-                  ),
-                );
+                return const IconBtn(icon: "assets/images/centers.svg");
               },
             ),
           ),
