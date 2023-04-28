@@ -40,7 +40,6 @@ class CarModelsView extends ConsumerWidget {
   }
 
   CarModelsModel? getSelectedModel(List<CarModelsModel>? items) {
-    print('value: ${value}');
     if (items != null && items.isNotEmpty) {
       return items.firstWhere((e) => e.carBrandModelId == value);
     }

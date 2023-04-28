@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/core/widgets/rounded_btn.dart';
 import 'package:obd/features/cars/domain/usecases/update_cars.dart';
 import 'package:obd/features/cars/presentations/provider/selected_car_provider.dart';
 import 'package:obd/features/cars/presentations/provider/update_car_provider.dart';
@@ -10,9 +10,7 @@ import 'package:obd/features/cars/presentations/screens/car_models_view.dart';
 import 'package:obd/features/cars/presentations/screens/car_years_view.dart';
 
 class EditCarModelScreen extends ConsumerWidget {
-  const EditCarModelScreen({
-    super.key,
-  });
+  const EditCarModelScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

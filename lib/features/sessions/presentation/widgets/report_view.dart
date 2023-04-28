@@ -4,7 +4,7 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:obd/core/models/view_states.dart';
 import 'package:obd/features/sessions/data/models/session_code_model.dart';
 import 'package:obd/features/sessions/presentation/provider/session_code_provider.dart';
-import 'package:obd/features/sessions/presentation/widgets/fault_code.dart';
+import 'package:obd/features/sessions/presentation/widgets/report_card.dart';
 import 'package:obd/utils/ui_helper.dart';
 
 class ReportView extends ConsumerStatefulWidget {
@@ -49,7 +49,7 @@ class _ReportViewState extends ConsumerState<ReportView> {
           ),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        itemBuilder: (c, item) => FaultCode(item),
+        itemBuilder: (c, item) => ReportCard(item),
       );
     }
 

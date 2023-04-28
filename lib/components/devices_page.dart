@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 class DevicesPage extends StatelessWidget {
   const DevicesPage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const DevicesPage());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +38,6 @@ class DevicesPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar:
-          BottomNavigationBar(backgroundColor: Colors.red, items: const [
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-      ]),
     );
   }
 }

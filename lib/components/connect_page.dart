@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:obd/components/rounded_btn.dart';
-import 'package:obd/features/livedata/presentation/live_data_page.dart';
+import 'package:obd/components/live_data_page.dart';
+import 'package:obd/core/widgets/rounded_btn.dart';
 
 @RoutePage()
 class ConnectPage extends StatelessWidget {

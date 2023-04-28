@@ -9,7 +9,6 @@ class CenterModel implements PaginatedModel {
     this.centerId,
     this.name,
     this.phone,
-    this.location,
     this.address,
     this.areaId,
     this.lat,
@@ -21,7 +20,6 @@ class CenterModel implements PaginatedModel {
   final int? centerId;
   final String? name;
   final String? phone;
-  final String? location;
   final String? address;
   final int? areaId;
   final double? lat;

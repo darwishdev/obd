@@ -9,6 +9,7 @@ class SessionModel implements PaginatedModel {
     this.sessionId,
     this.carId,
     this.emergencies,
+    this.defaultCodes,
     this.createdAt,
     this.finishedAt,
   });
@@ -16,6 +17,7 @@ class SessionModel implements PaginatedModel {
   final int? sessionId;
   final int? carId;
   final int? emergencies;
+  final int? defaultCodes;
   final String? createdAt;
   final String? finishedAt;
 

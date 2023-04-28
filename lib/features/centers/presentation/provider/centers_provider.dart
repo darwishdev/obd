@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/core/models/view_states.dart';
 import 'package:obd/core/provider/base_provider.dart';
-import 'package:obd/features/reviews/data/models/center_model.dart';
-import 'package:obd/features/reviews/domain/usecases/centers.dart';
+import 'package:obd/features/centers/data/models/center_model.dart';
+import 'package:obd/features/centers/domain/usecases/centers.dart';
 
 final centersProvider =
     StateNotifierProvider.autoDispose<CentersProvider, ViewState>((ref) {

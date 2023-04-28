@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 class ConnectingPage extends StatelessWidget {
   const ConnectingPage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const ConnectingPage());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +38,6 @@ class ConnectingPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar:
-          BottomNavigationBar(backgroundColor: Colors.red, items: const [
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-        BottomNavigationBarItem(label: "home", icon: Icon(Icons.home)),
-      ]),
     );
   }
 }

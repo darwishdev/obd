@@ -32,7 +32,6 @@ class SessionRemoteDataSourceImpl implements SessionRemoteDataSource {
 
   @override
   Future<List<SessionCodeModel>> sessionCodes(SessionCodeParams params) async {
-    print(params.sessionId);
     final response = await _dioClient.dio.post(
       EndPoints.sessionCodes,
       data: {
@@ -42,16 +41,6 @@ class SessionRemoteDataSourceImpl implements SessionRemoteDataSource {
     final sessionCodes = <SessionCodeModel>[];
     for (final sessionCode in response.data['codes']) {
       sessionCodes.add(SessionCodeModel.fromJson(sessionCode));
-      //TODO remove this
-      sessionCodes.add(SessionCodeModel.fromJson({
-        "codeId": 3,
-        "carBrandModelId": 1,
-        "codeName": "122218",
-        "VehiclePart": "Engine (engine control)",
-        "CodeType": "M",
-        "description": "Engine Coolant Temperature Circuit High Input",
-        "isEmergency": false
-      }));
     }
     return sessionCodes;
   }

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:obd/components/rounded_btn.dart';
+import 'package:obd/core/widgets/rounded_btn.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 @RoutePage()

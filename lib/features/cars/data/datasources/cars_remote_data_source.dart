@@ -33,7 +33,7 @@ class CarsRemoteDataSourceImpl implements CarsRemoteDataSource {
 
   @override
   Future<bool> updateCar(UpdateCarParams params) async {
-    final response = await _dioClient.dio.post(
+    await _dioClient.dio.post(
       EndPoints.carUpdate,
       data: {
         'car_brand_model_id': params.carBrandModelId,

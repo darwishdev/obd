@@ -26,7 +26,6 @@ class RoundedBtn extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        margin: const EdgeInsets.symmetric(horizontal: 40),
         decoration: BoxDecoration(
           boxShadow: [AppTheme.mainShadow],
           gradient: AppTheme.mainGredient,

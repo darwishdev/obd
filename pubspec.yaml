@@ -16,22 +16,22 @@ dependencies:
 
   # UI
   cupertino_icons: ^1.0.2
-  animated_text_kit: ^4.2.2
-  animated_widgets: ^1.1.0
   responsive_framework: ^0.2.0
   cached_network_image: ^3.2.3
   flutter_svg: ^2.0.5
-  syncfusion_flutter_gauges: ^21.1.39
-  syncfusion_flutter_charts: ^21.1.39
+  syncfusion_flutter_gauges: ^21.1.41
+  syncfusion_flutter_charts: ^21.1.41
   flutter_rating_bar: ^4.0.1
   flutter_easyloading: ^3.0.5
   dropdown_search: ^5.0.6
   modal_bottom_sheet: ^3.0.0-pre
   grouped_list: ^5.1.2
 
+  #location
+  geolocator: ^9.0.2
 
   # Routing
-  auto_route: ^6.2.0
+  auto_route: ^6.4.0
 
   # API
   dio: ^5.0.2
@@ -39,26 +39,23 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
 
-  # Localization
-  easy_localization: ^3.0.1
-
   # State Management
-  flutter_riverpod: ^2.3.1
-
-  # env
-  flutter_flavor: ^3.1.1
+  flutter_riverpod: ^2.3.6
 
   # tools
   url_launcher: ^6.1.10
+  intl: ^0.18.1
 
   # data
   flutter_secure_storage: ^8.0.0
   shared_preferences: ^2.1.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  custom_lint:
+  riverpod_lint:
 
   flutter_lints: ^2.0.0
 
@@ -66,7 +63,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   auto_route_generator: ^6.2.0
 
-  flutter_launcher_icons: "^0.13.0"
+  flutter_launcher_icons: "^0.13.1"
 
 flutter_icons:
   image_path: "assets/images/logo.png"

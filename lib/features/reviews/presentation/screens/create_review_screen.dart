@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:obd/components/rounded_btn.dart';
 import 'package:obd/core/models/view_states.dart';
 import 'package:obd/core/widgets/form_field_widget.dart';
+import 'package:obd/core/widgets/rounded_btn.dart';
+import 'package:obd/features/centers/presentation/provider/selected_center_provider.dart';
+import 'package:obd/features/centers/presentation/widgets/centers_drop_down_widget.dart';
 import 'package:obd/features/reviews/domain/usecases/review_center.dart';
 import 'package:obd/features/reviews/presentation/provider/review_center_provider.dart';
 import 'package:obd/features/reviews/presentation/provider/reviews_provider.dart';
-import 'package:obd/features/reviews/presentation/provider/selected_center_provider.dart';
 import 'package:obd/features/reviews/presentation/provider/selected_rate_part_provider.dart';
-import 'package:obd/features/reviews/presentation/widgets/centers_view.dart';
 import 'package:obd/theme/dimensions.dart';
 import 'package:obd/utils/ui_helper.dart';
 
@@ -102,7 +102,7 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
                   ),
                 ),
                 const SizedBox(height: AppDimensions.kSizeMedium),
-                const CentersView(),
+                const CentersDropDownWidget(),
                 const SizedBox(height: AppDimensions.kSizeMedium),
                 FormFieldWidget(
                   controller: _reviewController,

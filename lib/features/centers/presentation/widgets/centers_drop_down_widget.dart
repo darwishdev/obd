@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/core/models/view_states.dart';
 import 'package:obd/core/widgets/drop_down_widget.dart';
-import 'package:obd/features/reviews/data/models/center_model.dart';
-import 'package:obd/features/reviews/presentation/provider/centers_provider.dart';
-import 'package:obd/features/reviews/presentation/provider/selected_center_provider.dart';
+import 'package:obd/features/centers/data/models/center_model.dart';
+import 'package:obd/features/centers/presentation/provider/centers_provider.dart';
+import 'package:obd/features/centers/presentation/provider/selected_center_provider.dart';
 import 'package:obd/theme/dimensions.dart';
 import 'package:obd/utils/ui_helper.dart';
 
-class CentersView extends ConsumerStatefulWidget {
-  const CentersView({Key? key}) : super(key: key);
+class CentersDropDownWidget extends ConsumerStatefulWidget {
+  const CentersDropDownWidget({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<CentersView> createState() => _CentersViewState();
+  ConsumerState<CentersDropDownWidget> createState() =>
+      _CentersDropDownWidgetState();
 }
 
-class _CentersViewState extends ConsumerState<CentersView> {
+class _CentersDropDownWidgetState extends ConsumerState<CentersDropDownWidget> {
   @override
   void initState() {
     super.initState();

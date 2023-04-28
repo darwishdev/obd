@@ -17,7 +17,9 @@ class ReportScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: ReportView(id: sessionId),
+      body: SafeArea(
+        child: ReportView(id: sessionId),
+      ),
     );
   }
 }

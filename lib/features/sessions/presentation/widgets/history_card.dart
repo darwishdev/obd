@@ -44,26 +44,28 @@ class HistoryCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: const [
-                    Icon(Icons.error, color: Colors.red),
-                    SizedBox(width: 4.0),
-                    Text(
-                      'Errors: 1',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(Icons.warning, color: Colors.orange),
-                    const SizedBox(width: 4.0),
-                    Text(
-                      'Emergencies: ${session.emergencies}',
-                      style: const TextStyle(color: Colors.orange),
-                    ),
-                  ],
-                ),
+                if (session.emergencies != null)
+                  Row(
+                    children: [
+                      const Icon(Icons.error, color: Colors.red),
+                      const SizedBox(width: 4.0),
+                      Text(
+                        'Emergencies: ${session.emergencies}',
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    ],
+                  ),
+                if (session.defaultCodes != null)
+                  Row(
+                    children: [
+                      const Icon(Icons.warning, color: Colors.orange),
+                      const SizedBox(width: 4.0),
+                      Text(
+                        'Errors: ${session.defaultCodes}',
+                        style: const TextStyle(color: Colors.orange),
+                      ),
+                    ],
+                  ),
               ],
             ),
           ],

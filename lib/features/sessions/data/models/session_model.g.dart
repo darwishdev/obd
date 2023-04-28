@@ -10,6 +10,7 @@ SessionModel _$SessionModelFromJson(Map<String, dynamic> json) => SessionModel(
       sessionId: json['sessionId'] as int?,
       carId: json['carId'] as int?,
       emergencies: json['emergencies'] as int?,
+      defaultCodes: json['defaultCodes'] as int?,
       createdAt: json['createdAt'] as String?,
       finishedAt: json['finishedAt'] as String?,
     );
@@ -19,6 +20,7 @@ Map<String, dynamic> _$SessionModelToJson(SessionModel instance) =>
       'sessionId': instance.sessionId,
       'carId': instance.carId,
       'emergencies': instance.emergencies,
+      'defaultCodes': instance.defaultCodes,
       'createdAt': instance.createdAt,
       'finishedAt': instance.finishedAt,
     };

@@ -6,7 +6,7 @@ import 'package:obd/features/user/data/models/user_info_model.dart';
 import 'package:obd/features/user/domain/usecases/login.dart';
 
 final userLoginProvider =
-    StateNotifierProvider.autoDispose<UserLoginProvider, ViewState>((ref) {
+    StateNotifierProvider<UserLoginProvider, ViewState>((ref) {
   return UserLoginProvider(
     ref.watch(loginProvider),
     ref.watch(tokenRepositoryProvider),
