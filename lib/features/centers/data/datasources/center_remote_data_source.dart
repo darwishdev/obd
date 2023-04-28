@@ -25,8 +25,8 @@ class CenterRemoteDataSourceImpl implements CenterRemoteDataSource {
     final response = await _dioClient.dio.post(
       EndPoints.winches,
       data: {
-        "lat": 1,
-        "long": 1,
+        "lat": params.lat,
+        "long": params.long,
       },
     );
     final winches = <WinchModel>[];

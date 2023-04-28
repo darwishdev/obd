@@ -82,7 +82,7 @@ class _ReportCardState extends State<ReportCard> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               RoundedBtn(
                 onPressed: widget.model.isEmergency ?? false

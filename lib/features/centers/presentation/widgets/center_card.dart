@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:obd/features/centers/data/models/center_model.dart';
 import 'package:obd/theme/constants.dart';
 import 'package:obd/utils/link_launcher.dart';
@@ -21,8 +22,39 @@ class CenterCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.white,
+          child: ClipOval(
+            child: Image.network(
+              center.image ?? '',
+              fit: BoxFit.cover,
+              width: 60,
+              height: 60,
+              errorBuilder: (context, error, stackTrace) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.network(
+                    'https://static.exploremelon.com/carbrain/static-center-logo.png.png',
+                    fit: BoxFit.cover,
+                    width: 60,
+                    height: 60,
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
         title: Text(center.name ?? ''),
-        subtitle: Text(center.address ?? ''),
+        subtitle: RatingBarIndicator(
+          rating: double.tryParse(center.rate?.toString() ?? '') ?? 0.0,
+          itemBuilder: (_, i) => const Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          itemCount: 5,
+          itemSize: 20.0,
+        ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

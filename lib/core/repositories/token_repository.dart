@@ -41,7 +41,8 @@ class TokenRepository extends ChangeNotifier {
   Future<void> saveUserAccess(UserInfoModel user) async {
     _authToken = user.loginInfo?.accessToken;
     _userInfo = user;
-    notifyListeners();
+    //TODO fix bug
+
     await secureStorage.write(key: kUserInfo, value: jsonEncode(user));
   }
 

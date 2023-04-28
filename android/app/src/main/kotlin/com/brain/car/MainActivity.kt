@@ -1,4 +1,4 @@
-package com.example.client
+package com.brain.car
 
 import io.flutter.embedding.android.FlutterActivity
 
