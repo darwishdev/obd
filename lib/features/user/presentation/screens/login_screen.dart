@@ -113,6 +113,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   icon: "assets/images/login.svg",
                   text: "Login",
                   iconSize: 20,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
                   onPressed: () => ref.read(userLoginProvider.notifier).login(
                         emailOrPhone: _emailOrPhoneController.text,
                         password: _passwordController.text,

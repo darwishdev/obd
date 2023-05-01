@@ -8,6 +8,7 @@ class RoundedBtn extends StatelessWidget {
   final double? iconSize;
   final double? textSize;
   final Color? shadow;
+  final EdgeInsetsGeometry? margin;
   final void Function()? onPressed;
 
   const RoundedBtn({
@@ -17,6 +18,7 @@ class RoundedBtn extends StatelessWidget {
     this.iconSize,
     this.textSize,
     this.onPressed,
+    this.margin,
     this.shadow,
   });
 
@@ -25,7 +27,7 @@ class RoundedBtn extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
+        margin: margin,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           boxShadow: [AppTheme.mainShadow],

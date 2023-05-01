@@ -82,20 +82,22 @@ class _ReportCardState extends State<ReportCard> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              RoundedBtn(
-                onPressed: widget.model.isEmergency ?? false
-                    ? () => context.router.push(const WinchesRoute())
-                    : () => context.router.push(const CentersRoute()),
-                textSize: 14,
-                icon: widget.model.isEmergency ?? false
-                    ? "assets/images/winch.svg"
-                    : "assets/images/centers.svg",
-                text: widget.model.isEmergency ?? false
-                    ? "Call emergency - Winch"
-                    : "View nearest centers",
+              Expanded(
+                child: RoundedBtn(
+                  onPressed: widget.model.isEmergency ?? false
+                      ? () => context.router.push(const WinchesRoute())
+                      : () => context.router.push(const CentersRoute()),
+                  textSize: 14,
+                  icon: widget.model.isEmergency ?? false
+                      ? "assets/images/winch.svg"
+                      : "assets/images/centers.svg",
+                  text: widget.model.isEmergency ?? false
+                      ? "Call emergency - Winch"
+                      : "View nearest centers",
+                ),
               ),
+              const SizedBox(width: 20),
               IconBtn(
                 icon: "assets/images/google.svg",
                 onTap: () =>
