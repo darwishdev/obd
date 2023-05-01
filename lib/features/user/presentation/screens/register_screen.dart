@@ -67,7 +67,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         EasyLoading.showSuccess("Registered successfully");
         context
           ..popRoute()
-          ..replaceRoute(const ConnectPage());
+          ..replaceRoute(const BottomNavBarRoute());
       } else if (state is ErrorViewState) {
         EasyLoading.showError(state.errorMessage);
         context.popRoute();
