@@ -22,11 +22,11 @@ class Login implements UseCase<UserInfoModel, LoginParams> {
 }
 
 class LoginParams {
-  final String email;
+  final String emailOrPhone;
   final String password;
 
   const LoginParams({
-    required this.email,
+    required this.emailOrPhone,
     required this.password,
   });
 }

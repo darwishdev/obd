@@ -28,7 +28,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     final response = await _dioClient.dio.post(
       EndPoints.login,
       data: {
-        'email': params.email,
+        'email': params.emailOrPhone,
         'password': params.password,
       },
     );

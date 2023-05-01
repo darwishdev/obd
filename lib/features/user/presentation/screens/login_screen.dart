@@ -21,13 +21,13 @@ class LoginScreen extends ConsumerStatefulWidget {
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _emailOrPhoneController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
-    _emailController.dispose();
+    _emailOrPhoneController.dispose();
     _passwordController.dispose();
   }
 
@@ -58,12 +58,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   height: 250,
                 ),
                 FormFieldWidget(
-                  controller: _emailController,
-                  textInputType: TextInputType.emailAddress,
+                  controller: _emailOrPhoneController,
+                  textInputType: TextInputType.text,
                   validator: (value) {
-                    if (value != null &&
-                        !RegexConstants.kEmailRegex.hasMatch(value)) {
-                      return "Invalid email";
+                    if (value == null || value.isEmpty) {
+                      return "Email or phone can't be empty";
+                    } else if (value.isNotEmpty) {
+                      if (num.tryParse(value) != null) {
+                        if (value.length != 11) return "Invalid phone number";
+                      } else if (!RegexConstants.kEmailRegex.hasMatch(value)) {
+                        return "Invalid email";
+                      }
                     }
                     return null;
                   },
@@ -109,7 +114,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   text: "Login",
                   iconSize: 20,
                   onPressed: () => ref.read(userLoginProvider.notifier).login(
-                        email: _emailController.text,
+                        emailOrPhone: _emailOrPhoneController.text,
                         password: _passwordController.text,
                       ),
                 ),

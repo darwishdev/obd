@@ -20,12 +20,12 @@ class UserLoginProvider extends BaseProvider<UserInfoModel> {
   UserLoginProvider(this._login, this._tokenRepository);
 
   Future<void> login({
-    required String email,
+    required String emailOrPhone,
     required String password,
   }) async {
     setLoadingState();
     final response = await _login.call(LoginParams(
-      email: email,
+      emailOrPhone: emailOrPhone,
       password: password,
     ));
     response.fold(
