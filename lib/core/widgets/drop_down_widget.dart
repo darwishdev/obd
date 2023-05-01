@@ -86,13 +86,45 @@ class DropDownWidget<T> extends StatelessWidget {
       dropdownButtonProps: const DropdownButtonProps(color: Colors.grey),
       clearButtonProps: const ClearButtonProps(isVisible: true),
       popupProps: PopupProps.menu(
-        showSearchBox: true,
-        showSelectedItems: showSelectedItems,
-        isFilterOnline: true,
-        // menuProps: const MenuProps(
-        //   backgroundColor: AppColors.cardDetailsBackground,
-        // ),
-      ),
+          showSearchBox: true,
+          showSelectedItems: showSelectedItems,
+          isFilterOnline: true,
+          title: Text(title),
+          searchFieldProps: TextFieldProps(
+            decoration: InputDecoration(
+              hintText: 'Search',
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: AppDimensions.kSizeLarge,
+              ),
+              fillColor: Colors.grey,
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey.withOpacity(0.71),
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey.withOpacity(0.71),
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              disabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey.withOpacity(0.71),
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.grey.withOpacity(0.71),
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          )
+          // menuProps: const MenuProps(
+          //   backgroundColor: AppColors.cardDetailsBackground,
+          // ),
+          ),
     );
   }
 }

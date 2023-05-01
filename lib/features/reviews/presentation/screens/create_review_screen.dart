@@ -19,10 +19,12 @@ import 'package:obd/utils/ui_helper.dart';
 class CreateReviewScreen extends ConsumerStatefulWidget {
   const CreateReviewScreen({
     Key? key,
+    this.centerID,
     this.isProfile = true,
   }) : super(key: key);
 
   final bool isProfile;
+  final int? centerID;
   @override
   ConsumerState<CreateReviewScreen> createState() => _CreateReviewScreenState();
 }
@@ -47,7 +49,8 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
     }
     ref.read(reviewCenterProvider.notifier).reviewCenter(
           CreateReviewParams(
-            centerID: ref.read(selectedCenterProvider.notifier).state!,
+            centerID: widget.centerID ??
+                ref.read(selectedCenterProvider.notifier).state!,
             review: _reviewController.text,
             rate: ref.read(selectedRateProvider.notifier).state!,
           ),
@@ -63,8 +66,12 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
         Navigator.of(context)
           ..pop()
           ..pop();
-        if (!widget.isProfile) {
+        if (!widget.isProfile && widget.centerID == null) {
           ref.read(reviewsProvider.notifier).fetchReviews();
+        } else {
+          ref.read(reviewsProvider.notifier).fetchReviews(
+                centerID: widget.centerID,
+              );
         }
         EasyLoading.showSuccess('Review successfully');
       } else if (state is ErrorViewState) {
@@ -102,7 +109,7 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
                   ),
                 ),
                 const SizedBox(height: AppDimensions.kSizeMedium),
-                const CentersDropDownWidget(),
+                CentersDropDownWidget(centerID: widget.centerID),
                 const SizedBox(height: AppDimensions.kSizeMedium),
                 FormFieldWidget(
                   controller: _reviewController,

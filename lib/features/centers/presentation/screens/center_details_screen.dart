@@ -159,7 +159,8 @@ class _CenterDetailsScreenState extends ConsumerState<CenterDetailsScreen>
         onPressed: () => showBarModalBottomSheet(
           context: context,
           backgroundColor: Colors.grey[900],
-          builder: (context) => const CreateReviewScreen(),
+          builder: (context) =>
+              CreateReviewScreen(centerID: widget.center.centerId),
         ),
         label: const Text('Add review'),
         icon: const Icon(Icons.add),

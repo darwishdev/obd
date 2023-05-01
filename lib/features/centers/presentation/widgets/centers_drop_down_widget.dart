@@ -9,8 +9,12 @@ import 'package:obd/theme/dimensions.dart';
 import 'package:obd/utils/ui_helper.dart';
 
 class CentersDropDownWidget extends ConsumerStatefulWidget {
-  const CentersDropDownWidget({Key? key}) : super(key: key);
+  const CentersDropDownWidget({
+    Key? key,
+    this.centerID,
+  }) : super(key: key);
 
+  final int? centerID;
   @override
   ConsumerState<CentersDropDownWidget> createState() =>
       _CentersDropDownWidgetState();
@@ -48,9 +52,18 @@ class _CentersDropDownWidgetState extends ConsumerState<CentersDropDownWidget> {
           compareFn: (item, sItem) => item.name == sItem.name,
           itemAsString: (centers) => centers.name ?? '',
           items: state.data,
+          enabled: widget.centerID == null,
+          value: widget.centerID != null ? getSelectedCenter(state.data) : null,
         ),
       );
     }
     return const SizedBox();
+  }
+
+  CenterModel? getSelectedCenter(List<CenterModel> centers) {
+    for (final center in centers) {
+      if (center.centerId == widget.centerID) return center;
+    }
+    return null;
   }
 }
