@@ -25,6 +25,7 @@ class RoundedBtn extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           boxShadow: [AppTheme.mainShadow],

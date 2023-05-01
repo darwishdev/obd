@@ -11,6 +11,7 @@ import 'package:obd/features/cars/presentations/screens/car_models_view.dart';
 import 'package:obd/features/cars/presentations/screens/car_years_view.dart';
 import 'package:obd/features/user/data/models/user_info_model.dart';
 import 'package:obd/features/user/domain/usecases/register.dart';
+import 'package:obd/features/user/presentation/provider/password_visibility_provider.dart';
 import 'package:obd/features/user/presentation/provider/user_register_provider.dart';
 import 'package:obd/routes/app_router.gr.dart';
 import 'package:obd/theme/dimensions.dart';
@@ -140,6 +141,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 ),
                 FormFieldWidget(
                   controller: _passwordController,
+                  obscureText: ref.watch(passwordVisibilityProvider),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Password can't be empty";
@@ -151,6 +153,22 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     return null;
                   },
                   prefixWidget: const Icon(Icons.lock_outline),
+                  suffixWidget: IconButton(
+                    icon: Icon(
+                      ref.watch(passwordVisibilityProvider)
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      final visibility =
+                          ref.read(passwordVisibilityProvider.notifier);
+                      if (visibility.state) {
+                        visibility.state = false;
+                        return;
+                      }
+                      visibility.state = true;
+                    },
+                  ),
                   labelText: "Password",
                 ),
                 const SizedBox(height: 20),

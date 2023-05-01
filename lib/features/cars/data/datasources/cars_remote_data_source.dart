@@ -25,8 +25,8 @@ class CarsRemoteDataSourceImpl implements CarsRemoteDataSource {
       data: {},
     );
     final cars = <CarBrandsModel>[];
-    for (final bank in response.data['brands']) {
-      cars.add(CarBrandsModel.fromJson(bank));
+    for (final car in response.data['brands']) {
+      cars.add(CarBrandsModel.fromJson(car));
     }
     return cars;
   }

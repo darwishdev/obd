@@ -6,6 +6,7 @@ import 'package:obd/core/models/view_states.dart';
 import 'package:obd/core/widgets/form_field_widget.dart';
 import 'package:obd/core/widgets/rounded_btn.dart';
 import 'package:obd/features/user/data/models/user_info_model.dart';
+import 'package:obd/features/user/presentation/provider/password_visibility_provider.dart';
 import 'package:obd/features/user/presentation/provider/user_login_provider.dart';
 import 'package:obd/routes/app_router.gr.dart';
 import 'package:obd/utils/regex_constants.dart';
@@ -69,6 +70,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   prefixWidget: const Icon(Icons.email_outlined),
                   labelText: "Email",
                 ),
+                const SizedBox(height: 20),
                 FormFieldWidget(
                   controller: _passwordController,
                   validator: (value) {
@@ -77,9 +79,25 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     }
                     return null;
                   },
-                  obscureText: true,
+                  obscureText: ref.watch(passwordVisibilityProvider),
                   prefixWidget: const Icon(Icons.lock_outline),
                   labelText: "Password",
+                  suffixWidget: IconButton(
+                    icon: Icon(
+                      ref.watch(passwordVisibilityProvider)
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      final visibility =
+                          ref.read(passwordVisibilityProvider.notifier);
+                      if (visibility.state) {
+                        visibility.state = false;
+                        return;
+                      }
+                      visibility.state = true;
+                    },
+                  ),
                 ),
                 TextButton(
                   child: const Text("Don't have account? Sign up"),
