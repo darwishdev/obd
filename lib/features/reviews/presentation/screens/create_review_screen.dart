@@ -68,7 +68,7 @@ class _CreateReviewScreenState extends ConsumerState<CreateReviewScreen> {
           ..pop();
         if (!widget.isProfile && widget.centerID == null) {
           ref.read(reviewsProvider.notifier).fetchReviews();
-        } else {
+        } else if (widget.centerID != null) {
           ref.read(reviewsProvider.notifier).fetchReviews(
                 centerID: widget.centerID,
               );
