@@ -73,7 +73,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     return null;
                   },
                   prefixWidget: const Icon(Icons.email_outlined),
-                  labelText: "Email",
+                  labelText: "Email Or Phone",
                 ),
                 const SizedBox(height: 20),
                 FormFieldWidget(
