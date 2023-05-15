@@ -10,7 +10,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i17;
 import 'package:flutter/material.dart' as _i19;
-import 'package:obd/components/connect_page.dart' as _i16;
 import 'package:obd/components/live_data_page.dart' as _i15;
 import 'package:obd/core/splash_page.dart' as _i1;
 import 'package:obd/features/cars/presentations/screens/edit_car_screen.dart'
@@ -22,7 +21,9 @@ import 'package:obd/features/centers/presentation/screens/centers_screen.dart'
     as _i3;
 import 'package:obd/features/centers/presentation/screens/winches_screen.dart'
     as _i4;
-import 'package:obd/features/home/presentation/home_page.dart' as _i2;
+import 'package:obd/features/home/presentation/screens/home_screen.dart' as _i2;
+import 'package:obd/features/home/presentation/screens/obd_info_screen.dart'
+    as _i16;
 import 'package:obd/features/nav_bar/presentation/screens/bottom_nav_bar_screen.dart'
     as _i9;
 import 'package:obd/features/reviews/presentation/screens/create_review_screen.dart'
@@ -132,6 +133,7 @@ abstract class $AppRouter extends _i17.RootStackRouter {
         routeData: routeData,
         child: _i13.CreateReviewScreen(
           key: args.key,
+          centerID: args.centerID,
           isProfile: args.isProfile,
         ),
       );
@@ -148,10 +150,10 @@ abstract class $AppRouter extends _i17.RootStackRouter {
         child: const _i15.LiveDataScreen(),
       );
     },
-    ConnectPage.name: (routeData) {
+    OBDInfoRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i16.ConnectPage(),
+        child: const _i16.OBDInfoScreen(),
       );
     },
   };
@@ -378,12 +380,14 @@ class EditCarRoute extends _i17.PageRouteInfo<void> {
 class CreateReviewRoute extends _i17.PageRouteInfo<CreateReviewRouteArgs> {
   CreateReviewRoute({
     _i19.Key? key,
+    int? centerID,
     bool isProfile = true,
     List<_i17.PageRouteInfo>? children,
   }) : super(
           CreateReviewRoute.name,
           args: CreateReviewRouteArgs(
             key: key,
+            centerID: centerID,
             isProfile: isProfile,
           ),
           initialChildren: children,
@@ -398,16 +402,19 @@ class CreateReviewRoute extends _i17.PageRouteInfo<CreateReviewRouteArgs> {
 class CreateReviewRouteArgs {
   const CreateReviewRouteArgs({
     this.key,
+    this.centerID,
     this.isProfile = true,
   });
 
   final _i19.Key? key;
 
+  final int? centerID;
+
   final bool isProfile;
 
   @override
   String toString() {
-    return 'CreateReviewRouteArgs{key: $key, isProfile: $isProfile}';
+    return 'CreateReviewRouteArgs{key: $key, centerID: $centerID, isProfile: $isProfile}';
   }
 }
 
@@ -440,15 +447,15 @@ class LiveDataRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.ConnectPage]
-class ConnectPage extends _i17.PageRouteInfo<void> {
-  const ConnectPage({List<_i17.PageRouteInfo>? children})
+/// [_i16.OBDInfoScreen]
+class OBDInfoRoute extends _i17.PageRouteInfo<void> {
+  const OBDInfoRoute({List<_i17.PageRouteInfo>? children})
       : super(
-          ConnectPage.name,
+          OBDInfoRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ConnectPage';
+  static const String name = 'OBDInfoRoute';
 
   static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
 }

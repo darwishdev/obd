@@ -14,4 +14,7 @@ class EndPoints {
 
   static const String sessions = "/SessionsList";
   static const String sessionCodes = "/SessionGetCodes";
+  static const String sessionCreate = "/SessionCreate";
+  static const String sessionAttachValue = "/SessionAttachValue";
+  static const String sessionAttachCodes = "/SessionAttachCodes";
 }

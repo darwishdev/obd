@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   title: const Text("Connect"),
                   trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () => context.router.push(const ConnectPage()),
+                  onTap: () => AutoTabsRouter.of(context).setActiveIndex(0),
                 ),
               ),
               const Divider(),

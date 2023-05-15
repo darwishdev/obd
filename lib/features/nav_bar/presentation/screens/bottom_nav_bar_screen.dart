@@ -11,8 +11,8 @@ class BottomNavBarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: const [
-        LiveDataRoute(),
         HomeRoute(),
+        // LiveDataRoute(),
         HistoryRoute(),
         ProfileRoute(),
       ],
@@ -24,6 +24,7 @@ class BottomNavBarScreen extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
+          selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white.withOpacity(.60),
           items: const [
             BottomNavigationBarItem(
@@ -31,11 +32,11 @@ class BottomNavBarScreen extends StatelessWidget {
               label: 'Dashboard',
               backgroundColor: Color(0xff010001),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.stacked_line_chart),
-              label: 'Live Data',
-              backgroundColor: Color(0xff010001),
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.stacked_line_chart),
+            //   label: 'Live Data',
+            //   backgroundColor: Color(0xff010001),
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.history),
               label: 'History',

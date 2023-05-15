@@ -27,7 +27,6 @@ class DioClient with ChangeNotifier {
             receiveTimeout: const Duration(seconds: 30),
             connectTimeout: const Duration(seconds: 30),
             sendTimeout: const Duration(seconds: 30),
-            contentType: 'application/json',
           ),
         )..interceptors.add(AppInterceptors(repositoryToken, appRouter));
 }

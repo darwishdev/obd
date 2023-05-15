@@ -14,12 +14,10 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: RegisterRoute.page),
     AutoRoute(page: EditCarRoute.page),
     AutoRoute(page: ReviewsRoute.page),
-    AutoRoute(page: ConnectPage.page),
     AutoRoute(
       page: BottomNavBarRoute.page,
       children: [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: LiveDataRoute.page),
         AutoRoute(page: HistoryRoute.page),
         AutoRoute(page: ProfileRoute.page),
       ],
@@ -29,5 +27,6 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: CentersRoute.page),
     AutoRoute(page: WinchesRoute.page),
     AutoRoute(page: CenterDetailsRoute.page),
+    AutoRoute(page: OBDInfoRoute.page),
   ];
 }

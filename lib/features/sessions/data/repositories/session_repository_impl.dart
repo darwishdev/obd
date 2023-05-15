@@ -6,7 +6,10 @@ import 'package:obd/features/sessions/data/datasources/session_remote_data_sourc
 import 'package:obd/features/sessions/data/models/session_code_model.dart';
 import 'package:obd/features/sessions/data/models/session_model.dart';
 import 'package:obd/features/sessions/domain/repositories/session_repository.dart';
+import 'package:obd/features/sessions/domain/usecases/session_attach_code.dart';
+import 'package:obd/features/sessions/domain/usecases/session_attach_value.dart';
 import 'package:obd/features/sessions/domain/usecases/session_code.dart';
+import 'package:obd/features/sessions/domain/usecases/session_create.dart';
 
 final sessionRepositoryImpl = Provider<SessionRepositoryImpl>(
   (ref) => SessionRepositoryImpl(
@@ -35,6 +38,42 @@ class SessionRepositoryImpl implements SessionRepository {
       SessionCodeParams params) async {
     try {
       final response = await _sessionRemoteDataSource.sessionCodes(params);
+      return Right(response);
+    } catch (e) {
+      //TODO handle error
+      return Left(OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> sessionAttachCode(
+      SessionAttachCodeParams params) async {
+    try {
+      final response = await _sessionRemoteDataSource.sessionAttachCode(params);
+      return Right(response);
+    } catch (e) {
+      //TODO handle error
+      return Left(OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> sessionAttachValue(
+      SessionAttachValueParams params) async {
+    try {
+      final response =
+          await _sessionRemoteDataSource.sessionAttachValue(params);
+      return Right(response);
+    } catch (e) {
+      //TODO handle error
+      return Left(OtherFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int>> sessionCreate(SessionCreateParams params) async {
+    try {
+      final response = await _sessionRemoteDataSource.sessionCreate(params);
       return Right(response);
     } catch (e) {
       //TODO handle error

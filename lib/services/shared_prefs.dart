@@ -1,10 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AppSharedPrefs {
-  static SharedPreferences? _sharedPreferences;
-  static SharedPreferences? get instance => _sharedPreferences;
-
-  static Future<void> ensureInit() async {
-    _sharedPreferences = await SharedPreferences.getInstance();
-  }
-}
+// We don't have an actual instance of SharedPreferences, and we can't get one except asynchronously
+final sharedPrefsProvider =
+    Provider<SharedPreferences>((ref) => throw UnimplementedError());

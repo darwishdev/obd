@@ -7,6 +7,10 @@ PODS:
   - FMDB/standard (2.7.5)
   - geolocator_apple (1.2.0):
     - Flutter
+  - OBD2-Swift (0.2.0)
+  - odb_connect (0.0.1):
+    - Flutter
+    - OBD2-Swift
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -23,14 +27,16 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
-  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - odb_connect (from `.symlinks/plugins/odb_connect/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
     - FMDB
+    - OBD2-Swift
 
 EXTERNAL SOURCES:
   Flutter:
@@ -39,10 +45,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   geolocator_apple:
     :path: ".symlinks/plugins/geolocator_apple/ios"
+  odb_connect:
+    :path: ".symlinks/plugins/odb_connect/ios"
   path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/ios"
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   shared_preferences_foundation:
-    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
@@ -53,8 +61,10 @@ SPEC CHECKSUMS:
   flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
-  path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
-  shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
+  OBD2-Swift: a089c50e04ac45754170c21584f79054d309f65d
+  odb_connect: f7ee1bf2d68d63fb8ed0f2db77e6d86414fea2ff
+  path_provider_foundation: eaf5b3e458fc0e5fbb9940fb09980e853fe058b8
+  shared_preferences_foundation: e2dae3258e06f44cc55f49d42024fd8dd03c590c
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 

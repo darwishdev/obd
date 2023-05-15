@@ -25,19 +25,18 @@ class App extends StatelessWidget {
 
             return Builder(
               builder: (context) {
-                return ResponsiveWrapper.builder(
-                  MediaQuery(
+                return ResponsiveBreakpoints.builder(
+                  child: MediaQuery(
                     data: context.mediaQuery.copyWith(textScaleFactor: scale),
                     child: Theme(
                       data: getThemeData(context),
                       child: navigator!,
                     ),
                   ),
-                  breakpoints: const [
-                    ResponsiveBreakpoint.resize(480, name: MOBILE),
-                    ResponsiveBreakpoint.resize(860, name: MOBILE),
-                    ResponsiveBreakpoint.autoScale(800, name: TABLET),
-                    ResponsiveBreakpoint.resize(1024, name: DESKTOP),
+                  breakpoints: [
+                    const Breakpoint(start: 0, end: 450, name: MOBILE),
+                    const Breakpoint(start: 451, end: 800, name: TABLET),
+                    const Breakpoint(start: 801, end: 1920, name: DESKTOP),
                   ],
                 );
               },
