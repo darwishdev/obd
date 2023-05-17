@@ -1,11 +1,13 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/features/home/data/models/obd_model.dart';
 import 'package:obd/features/sessions/presentation/provider/session_attach_value_provider.dart';
 import 'package:odb_connect/odb_connect.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 final obdInfoProvider = FutureProvider.autoDispose<OBDModel?>((ref) {
   final timer = Timer(const Duration(seconds: 5), () => ref.invalidateSelf());
@@ -32,10 +34,14 @@ class ObdReader with ChangeNotifier {
 
   Future<void> startOBD() async {
     try {
-      obdMesg = await OdbConnect.startOBD;
-      started = true;
-    } on PlatformException {
-      obdMesg = 'Failed to start obdMesg.';
+      var isAccessed = await requestBluetoothAccess();
+      print('isAccessed: $isAccessed');
+      if (isAccessed) {
+        obdMesg = await OdbConnect.startOBD;
+        started = true;
+      }
+    } catch (e) {
+      obdMesg = 'Failed to start obdMesg. $e';
       started = false;
     }
     print('OBD Mesg: $obdMesg');
@@ -78,6 +84,37 @@ class ObdReader with ChangeNotifier {
     } catch (e) {
       print('Error FetchTroubleCode: $e');
       return null;
+    }
+  }
+
+  Future<int> getAndroidSdk() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+    return androidInfo.version.sdkInt;
+  }
+
+  Future<bool> requestBluetoothAccess() async {
+    Future<bool> permStatus;
+    if (Platform.isAndroid && await getAndroidSdk() > 30) {
+      // It seems some manufacturer misimplement the bluetooth permissions
+      // so I have added the request to Permission.bluetooth and inside
+      // AndroidManifest.xml I have removed the android:maxSdkVersion="30".
+      permStatus = _requestAccess(Permission.bluetooth)
+          .then((isGranted) => _requestAccess(Permission.bluetoothScan))
+          .then((isGranted) => _requestAccess(Permission.bluetoothConnect))
+          .then((isGranted) => isGranted);
+    } else {
+      permStatus = _requestAccess(Permission.bluetooth);
+    }
+    return permStatus;
+  }
+
+  Future<bool> _requestAccess(Permission permission) async {
+    final status = await permission.status;
+    if (status.isDenied) {
+      return permission.request().isGranted;
+    } else {
+      return status.isGranted;
     }
   }
 }

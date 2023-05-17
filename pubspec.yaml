@@ -48,6 +48,9 @@ dependencies:
 
   # obd
   odb_connect: ^2.0.2
+  bluetooth_obd: ^0.0.6
+  permission_handler: ^10.2.0
+  device_info_plus: ^9.0.0
 
   # data
   flutter_secure_storage: ^8.0.0

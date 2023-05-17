@@ -90,7 +90,7 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                         ],
                         pointers: <GaugePointer>[
                           NeedlePointer(
-                            value: double.parse(info?.rpm ?? "0.0"),
+                            value: double.tryParse(info?.rpm ?? "0.0") ?? 0,
                             needleLength: 0.95,
                             enableAnimation: true,
                             animationType: AnimationType.ease,

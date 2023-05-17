@@ -51,7 +51,7 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: !ref.watch(obdReaderProvider).started
+      body: ref.watch(obdReaderProvider).started
           ? Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Column(
