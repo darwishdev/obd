@@ -47,10 +47,12 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
               data: (info) => ListView(
                 children: [
                   SfRadialGauge(
+                    enableLoadingAnimation: true,
+                    title: const GaugeTitle(text: "RPM"),
                     axes: <RadialAxis>[
                       RadialAxis(
                         minimum: 0,
-                        maximum: 200,
+                        maximum: 12,
                         labelOffset: 30,
                         axisLineStyle: const AxisLineStyle(
                           thicknessUnit: GaugeSizeUnit.factor,
@@ -69,12 +71,12 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                         axisLabelStyle: const GaugeTextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 25,
                         ),
                         ranges: <GaugeRange>[
                           GaugeRange(
                             startValue: 0,
-                            endValue: 200,
+                            endValue: 12,
                             sizeUnit: GaugeSizeUnit.factor,
                             startWidth: 0.03,
                             endWidth: 0.03,
@@ -84,14 +86,13 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                                 Colors.yellow,
                                 Colors.red
                               ],
-                              stops: <double>[0.0, 0.5, 1],
+                              stops: <double>[0.0, 0.2, 1],
                             ),
                           )
                         ],
                         pointers: <GaugePointer>[
                           NeedlePointer(
-                            value: (double.tryParse(info?.rpm ?? "0.0") ??
-                                0 / 1000),
+                            value: double.parse(info?.rpm ?? "0.0") / 1000,
                             needleLength: 0.95,
                             enableAnimation: true,
                             animationType: AnimationType.ease,
