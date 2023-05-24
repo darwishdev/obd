@@ -17,7 +17,7 @@ Future<void> main() async {
         // Override the unimplemented provider with the value gotten from the plugin
         sharedPrefsProvider.overrideWithValue(prefs),
       ],
-      child: App(),
+      child: const App(),
     ),
   );
 }

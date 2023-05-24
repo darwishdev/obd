@@ -93,7 +93,7 @@ class DropDownWidget<T> extends StatelessWidget {
           searchFieldProps: TextFieldProps(
             decoration: InputDecoration(
               hintText: 'Search',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 color: Colors.grey,
                 fontSize: AppDimensions.kSizeLarge,
               ),
