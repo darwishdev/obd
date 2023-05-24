@@ -105,35 +105,90 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            const TextSpan(text: 'The Intake Air Temp: '),
-                            TextSpan(
-                              text: info?.airIntakeTemp ?? '',
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                  SfRadialGauge(
+                    enableLoadingAnimation: true,
+                    title: const GaugeTitle(text: "Speed"),
+                    axes: <RadialAxis>[
+                      RadialAxis(
+                        minimum: 0,
+                        maximum: 320,
+                        labelOffset: 20,
+                        axisLineStyle: const AxisLineStyle(
+                          thicknessUnit: GaugeSizeUnit.factor,
+                          thickness: 0.03,
                         ),
-                      ),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            const TextSpan(text: 'Speed: '),
-                            TextSpan(
-                              text: info?.speed ?? '',
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                        majorTickStyle: const MajorTickStyle(
+                          length: 6,
+                          thickness: 4,
+                          color: Colors.white,
                         ),
-                      ),
+                        minorTickStyle: const MinorTickStyle(
+                          length: 3,
+                          thickness: 3,
+                          color: Colors.white,
+                        ),
+                        axisLabelStyle: const GaugeTextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        ranges: <GaugeRange>[
+                          GaugeRange(
+                            startValue: 0,
+                            endValue: 320,
+                            sizeUnit: GaugeSizeUnit.factor,
+                            startWidth: 0.03,
+                            endWidth: 0.03,
+                            gradient: const SweepGradient(
+                              colors: <Color>[
+                                Colors.green,
+                                Colors.yellow,
+                                Colors.red
+                              ],
+                              stops: <double>[0.0, 0.5, 1],
+                            ),
+                          )
+                        ],
+                        pointers: <GaugePointer>[
+                          NeedlePointer(
+                            value: double.parse(info?.speed ?? "0.0"),
+                            needleLength: 0.95,
+                            enableAnimation: true,
+                            animationType: AnimationType.ease,
+                            needleStartWidth: 1.5,
+                            needleEndWidth: 6,
+                            needleColor: Colors.red,
+                            knobStyle: const KnobStyle(knobRadius: 0.09),
+                          )
+                        ],
+                      )
                     ],
+                  ),
+                  const SizedBox(height: 20),
+                  Text.rich(
+                    textAlign: TextAlign.center,
+                    TextSpan(
+                      children: [
+                        const TextSpan(text: 'The Intake Air Temp: '),
+                        TextSpan(
+                          text: info?.airIntakeTemp ?? '',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text.rich(
+                    textAlign: TextAlign.center,
+                    TextSpan(
+                      children: [
+                        const TextSpan(text: 'The Engine Load: '),
+                        TextSpan(
+                          text: info?.engineLoad ?? '',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 20),
                   const Divider(),
