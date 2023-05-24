@@ -26,7 +26,7 @@ class SessionAttachCodeProvider extends BaseProvider<bool> {
     final response = await _sessionAttachCode.call(
       SessionAttachCodeParams(
         sessionId: _ref.read(sessionCreateProvider.notifier).sessionID,
-        codeIDs: codeIDs.join(','),
+        codeIDs: codeIDs,
       ),
     );
     response.fold(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:obd/features/home/data/models/obd_model.dart';
 import 'package:obd/features/sessions/presentation/provider/session_attach_value_provider.dart';
+import 'package:obd/utils/helper_functions.dart';
 import 'package:odb_connect/odb_connect.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -16,7 +17,6 @@ final obdInfoProvider = FutureProvider.autoDispose<OBDModel?>((ref) {
     if (val != null) {
       ref.read(sessionAttachValueProvider.notifier).sessionAttachValue(val);
     }
-    print('obdInfoProvider::::: $val');
     return val;
   });
 });
@@ -35,7 +35,6 @@ class ObdReader with ChangeNotifier {
   Future<void> startOBD() async {
     try {
       var isAccessed = await requestBluetoothAccess();
-      print('isAccessed: $isAccessed');
       if (isAccessed) {
         obdMesg = await OdbConnect.startOBD;
         started = true;
@@ -74,13 +73,15 @@ class ObdReader with ChangeNotifier {
 
   Future<List<String>?> fetchTroubleCode() async {
     try {
-      final results = await Future.wait([
-        OdbConnect.getTroubleCode,
-        OdbConnect.getPermanentTroubleCode,
-        OdbConnect.getPendingTroubleCode,
-      ]);
+      // final results = await Future.wait([
+      //   OdbConnect.getTroubleCode,
+      //   OdbConnect.getPermanentTroubleCode,
+      //   OdbConnect.getPendingTroubleCode,
+      // ]);
+      final results = await OdbConnect.getTroubleCode;
       print('fetchTroubleCode::::: $results');
-      return results;
+      final input = results.replaceAll(RegExp(r"\s+"), "");
+      return HelperFunctions.splitByIndex(input, 5);
     } catch (e) {
       print('Error FetchTroubleCode: $e');
       return null;
@@ -102,6 +103,7 @@ class ObdReader with ChangeNotifier {
       permStatus = _requestAccess(Permission.bluetooth)
           .then((isGranted) => _requestAccess(Permission.bluetoothScan))
           .then((isGranted) => _requestAccess(Permission.bluetoothConnect))
+          .then((isGranted) => _requestAccess(Permission.bluetoothAdvertise))
           .then((isGranted) => isGranted);
     } else {
       permStatus = _requestAccess(Permission.bluetooth);

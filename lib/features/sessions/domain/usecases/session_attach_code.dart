@@ -22,7 +22,7 @@ class SessionAttachCode implements UseCase<bool, SessionAttachCodeParams> {
 
 class SessionAttachCodeParams {
   final int? sessionId;
-  final String? codeIDs;
+  final List<String>? codeIDs;
 
   const SessionAttachCodeParams({this.sessionId, this.codeIDs});
 }
