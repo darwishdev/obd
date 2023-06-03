@@ -10,36 +10,36 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i17;
 import 'package:flutter/material.dart' as _i19;
-import 'package:obd/components/live_data_page.dart' as _i15;
+import 'package:obd/components/live_data_page.dart' as _i16;
 import 'package:obd/core/splash_page.dart' as _i1;
 import 'package:obd/features/cars/presentations/screens/edit_car_screen.dart'
-    as _i12;
+    as _i13;
 import 'package:obd/features/centers/data/models/center_model.dart' as _i18;
 import 'package:obd/features/centers/presentation/screens/center_details_screen.dart'
-    as _i5;
-import 'package:obd/features/centers/presentation/screens/centers_screen.dart'
-    as _i3;
-import 'package:obd/features/centers/presentation/screens/winches_screen.dart'
-    as _i4;
-import 'package:obd/features/home/presentation/screens/home_screen.dart' as _i2;
-import 'package:obd/features/home/presentation/screens/obd_info_screen.dart'
-    as _i16;
-import 'package:obd/features/nav_bar/presentation/screens/bottom_nav_bar_screen.dart'
-    as _i9;
-import 'package:obd/features/reviews/presentation/screens/create_review_screen.dart'
-    as _i13;
-import 'package:obd/features/reviews/presentation/screens/reviews_screen.dart'
-    as _i14;
-import 'package:obd/features/sessions/presentation/screens/history_screen.dart'
-    as _i10;
-import 'package:obd/features/sessions/presentation/screens/report_screen.dart'
-    as _i11;
-import 'package:obd/features/user/presentation/screens/login_screen.dart'
-    as _i8;
-import 'package:obd/features/user/presentation/screens/profile_screen.dart'
     as _i6;
-import 'package:obd/features/user/presentation/screens/register_screen.dart'
+import 'package:obd/features/centers/presentation/screens/centers_screen.dart'
+    as _i4;
+import 'package:obd/features/centers/presentation/screens/winches_screen.dart'
+    as _i5;
+import 'package:obd/features/home/presentation/screens/home_screen.dart' as _i3;
+import 'package:obd/features/home/presentation/screens/obd_info_screen.dart'
+    as _i2;
+import 'package:obd/features/nav_bar/presentation/screens/bottom_nav_bar_screen.dart'
+    as _i10;
+import 'package:obd/features/reviews/presentation/screens/create_review_screen.dart'
+    as _i14;
+import 'package:obd/features/reviews/presentation/screens/reviews_screen.dart'
+    as _i15;
+import 'package:obd/features/sessions/presentation/screens/history_screen.dart'
+    as _i11;
+import 'package:obd/features/sessions/presentation/screens/report_screen.dart'
+    as _i12;
+import 'package:obd/features/user/presentation/screens/login_screen.dart'
+    as _i9;
+import 'package:obd/features/user/presentation/screens/profile_screen.dart'
     as _i7;
+import 'package:obd/features/user/presentation/screens/register_screen.dart'
+    as _i8;
 
 abstract class $AppRouter extends _i17.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -52,29 +52,35 @@ abstract class $AppRouter extends _i17.RootStackRouter {
         child: const _i1.SplashScreen(),
       );
     },
+    OBDInfoRoute.name: (routeData) {
+      return _i17.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.OBDInfoScreen(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.HomeScreen(),
+        child: const _i3.HomeScreen(),
       );
     },
     CentersRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.CentersScreen(),
+        child: const _i4.CentersScreen(),
       );
     },
     WinchesRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.WinchesScreen(),
+        child: const _i5.WinchesScreen(),
       );
     },
     CenterDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<CenterDetailsRouteArgs>();
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i5.CenterDetailsScreen(
+        child: _i6.CenterDetailsScreen(
           args.center,
           key: args.key,
         ),
@@ -83,38 +89,38 @@ abstract class $AppRouter extends _i17.RootStackRouter {
     ProfileRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.ProfileScreen(),
+        child: const _i7.ProfileScreen(),
       );
     },
     RegisterRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.RegisterScreen(),
+        child: const _i8.RegisterScreen(),
       );
     },
     LoginRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.LoginScreen(),
+        child: const _i9.LoginScreen(),
       );
     },
     BottomNavBarRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.BottomNavBarScreen(),
+        child: const _i10.BottomNavBarScreen(),
       );
     },
     HistoryRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.HistoryScreen(),
+        child: const _i11.HistoryScreen(),
       );
     },
     ReportRoute.name: (routeData) {
       final args = routeData.argsAs<ReportRouteArgs>();
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i11.ReportScreen(
+        child: _i12.ReportScreen(
           args.sessionId,
           key: args.key,
         ),
@@ -123,7 +129,7 @@ abstract class $AppRouter extends _i17.RootStackRouter {
     EditCarRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i12.EditCarScreen(),
+        child: const _i13.EditCarScreen(),
       );
     },
     CreateReviewRoute.name: (routeData) {
@@ -131,7 +137,7 @@ abstract class $AppRouter extends _i17.RootStackRouter {
           orElse: () => const CreateReviewRouteArgs());
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i13.CreateReviewScreen(
+        child: _i14.CreateReviewScreen(
           key: args.key,
           centerID: args.centerID,
           isProfile: args.isProfile,
@@ -141,19 +147,13 @@ abstract class $AppRouter extends _i17.RootStackRouter {
     ReviewsRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i14.ReviewsScreen(),
+        child: const _i15.ReviewsScreen(),
       );
     },
     LiveDataRoute.name: (routeData) {
       return _i17.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.LiveDataScreen(),
-      );
-    },
-    OBDInfoRoute.name: (routeData) {
-      return _i17.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i16.OBDInfoScreen(),
+        child: const _i16.LiveDataScreen(),
       );
     },
   };
@@ -174,7 +174,21 @@ class SplashRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HomeScreen]
+/// [_i2.OBDInfoScreen]
+class OBDInfoRoute extends _i17.PageRouteInfo<void> {
+  const OBDInfoRoute({List<_i17.PageRouteInfo>? children})
+      : super(
+          OBDInfoRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OBDInfoRoute';
+
+  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.HomeScreen]
 class HomeRoute extends _i17.PageRouteInfo<void> {
   const HomeRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -188,7 +202,7 @@ class HomeRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.CentersScreen]
+/// [_i4.CentersScreen]
 class CentersRoute extends _i17.PageRouteInfo<void> {
   const CentersRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -202,7 +216,7 @@ class CentersRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.WinchesScreen]
+/// [_i5.WinchesScreen]
 class WinchesRoute extends _i17.PageRouteInfo<void> {
   const WinchesRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -216,7 +230,7 @@ class WinchesRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.CenterDetailsScreen]
+/// [_i6.CenterDetailsScreen]
 class CenterDetailsRoute extends _i17.PageRouteInfo<CenterDetailsRouteArgs> {
   CenterDetailsRoute({
     required _i18.CenterModel center,
@@ -254,7 +268,7 @@ class CenterDetailsRouteArgs {
 }
 
 /// generated route for
-/// [_i6.ProfileScreen]
+/// [_i7.ProfileScreen]
 class ProfileRoute extends _i17.PageRouteInfo<void> {
   const ProfileRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -268,7 +282,7 @@ class ProfileRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.RegisterScreen]
+/// [_i8.RegisterScreen]
 class RegisterRoute extends _i17.PageRouteInfo<void> {
   const RegisterRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -282,7 +296,7 @@ class RegisterRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.LoginScreen]
+/// [_i9.LoginScreen]
 class LoginRoute extends _i17.PageRouteInfo<void> {
   const LoginRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -296,7 +310,7 @@ class LoginRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.BottomNavBarScreen]
+/// [_i10.BottomNavBarScreen]
 class BottomNavBarRoute extends _i17.PageRouteInfo<void> {
   const BottomNavBarRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -310,7 +324,7 @@ class BottomNavBarRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.HistoryScreen]
+/// [_i11.HistoryScreen]
 class HistoryRoute extends _i17.PageRouteInfo<void> {
   const HistoryRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -324,7 +338,7 @@ class HistoryRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.ReportScreen]
+/// [_i12.ReportScreen]
 class ReportRoute extends _i17.PageRouteInfo<ReportRouteArgs> {
   ReportRoute({
     required int? sessionId,
@@ -362,7 +376,7 @@ class ReportRouteArgs {
 }
 
 /// generated route for
-/// [_i12.EditCarScreen]
+/// [_i13.EditCarScreen]
 class EditCarRoute extends _i17.PageRouteInfo<void> {
   const EditCarRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -376,7 +390,7 @@ class EditCarRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.CreateReviewScreen]
+/// [_i14.CreateReviewScreen]
 class CreateReviewRoute extends _i17.PageRouteInfo<CreateReviewRouteArgs> {
   CreateReviewRoute({
     _i19.Key? key,
@@ -419,7 +433,7 @@ class CreateReviewRouteArgs {
 }
 
 /// generated route for
-/// [_i14.ReviewsScreen]
+/// [_i15.ReviewsScreen]
 class ReviewsRoute extends _i17.PageRouteInfo<void> {
   const ReviewsRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -433,7 +447,7 @@ class ReviewsRoute extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i15.LiveDataScreen]
+/// [_i16.LiveDataScreen]
 class LiveDataRoute extends _i17.PageRouteInfo<void> {
   const LiveDataRoute({List<_i17.PageRouteInfo>? children})
       : super(
@@ -442,20 +456,6 @@ class LiveDataRoute extends _i17.PageRouteInfo<void> {
         );
 
   static const String name = 'LiveDataRoute';
-
-  static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i16.OBDInfoScreen]
-class OBDInfoRoute extends _i17.PageRouteInfo<void> {
-  const OBDInfoRoute({List<_i17.PageRouteInfo>? children})
-      : super(
-          OBDInfoRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'OBDInfoRoute';
 
   static const _i17.PageInfo<void> page = _i17.PageInfo<void>(name);
 }

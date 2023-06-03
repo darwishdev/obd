@@ -55,6 +55,9 @@ class ObdReader with ChangeNotifier {
         OdbConnect.getAirIntakeTemperature,
         OdbConnect.getEngineLoad,
         OdbConnect.getModuleVoltage,
+        OdbConnect.getOilTemperature,
+        OdbConnect.getAirFuelRatio,
+        OdbConnect.getFuelPressure,
       ]);
       final obdModel = OBDModel(
         speed: results[0],
@@ -62,6 +65,9 @@ class ObdReader with ChangeNotifier {
         airIntakeTemp: results[2],
         engineLoad: results[3],
         moduleVoltage: results[4],
+        oilTemp: results[5],
+        airFuelRatio: results[6],
+        fuelPressure: results[7],
       );
       print('fetchOBDInfo::::: ${obdModel.toJson()}');
       return obdModel;

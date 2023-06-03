@@ -1,12 +1,15 @@
 import 'dart:convert';
 
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:obd/core/widgets/icon_btn.dart';
 import 'package:obd/features/home/presentation/provider/obd_reader_provider.dart';
 import 'package:obd/features/sessions/data/models/session_code_model.dart';
 import 'package:obd/features/sessions/presentation/widgets/report_card.dart';
+import 'package:obd/routes/app_router.gr.dart';
 import 'package:obd/services/shared_prefs.dart';
+import 'package:obd/utils/link_launcher.dart';
 import 'package:obd/utils/storage_keys_constants.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -46,6 +49,49 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
               error: (err, stack) => Text('Error: $err'),
               data: (info) => ListView(
                 children: [
+                  if (double.parse(info?.moduleVoltage ?? "0") > 10)
+                    ListTile(
+                      leading: const Icon(
+                        Icons.warning_amber,
+                        color: Colors.white,
+                      ),
+                      title: const Text(
+                        'Battery Voltage is high',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      tileColor: Colors.yellow[900],
+                    ),
+                  const SizedBox(height: 10),
+                  if (double.parse(info?.oilTemp ?? "0") > 110)
+                    ListTile(
+                      leading: const Icon(
+                        Icons.dangerous_outlined,
+                        color: Colors.white,
+                      ),
+                      title: const Text(
+                        'Oil Temperature is too high',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      subtitle: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.red[800],
+                        ),
+                        icon: const Icon(Icons.call),
+                        onPressed: () => context.router.push(
+                          const WinchesRoute(),
+                        ),
+                        label: const Text('Call winch'),
+                      ),
+                      trailing: IconBtn(
+                        icon: "assets/images/google.svg",
+                        onTap: () => LinkLauncher.launchGoogleSearch(
+                          "Oil Temperature is too high",
+                        ),
+                      ),
+                      tileColor: Colors.red,
+                    ),
+                  const SizedBox(height: 20),
                   SfRadialGauge(
                     enableLoadingAnimation: true,
                     title: const GaugeTitle(text: "RPM"),
@@ -185,6 +231,32 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                         const TextSpan(text: 'The Engine Load: '),
                         TextSpan(
                           text: info?.engineLoad ?? '',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text.rich(
+                    textAlign: TextAlign.center,
+                    TextSpan(
+                      children: [
+                        const TextSpan(text: 'The Air–fuel ratio: '),
+                        TextSpan(
+                          text: info?.airFuelRatio ?? '',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text.rich(
+                    textAlign: TextAlign.center,
+                    TextSpan(
+                      children: [
+                        const TextSpan(text: 'The Fuel Pressure: '),
+                        TextSpan(
+                          text: info?.fuelPressure ?? '',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],

@@ -9,6 +9,9 @@ class OBDModel {
   final String? airIntakeTemp;
   final String? engineLoad;
   final String? moduleVoltage;
+  final String? oilTemp;
+  final String? airFuelRatio;
+  final String? fuelPressure;
 
   OBDModel({
     this.speed,
@@ -16,6 +19,9 @@ class OBDModel {
     this.airIntakeTemp,
     this.engineLoad,
     this.moduleVoltage,
+    this.oilTemp,
+    this.airFuelRatio,
+    this.fuelPressure,
   });
 
   factory OBDModel.fromJson(Map<String, dynamic> json) =>

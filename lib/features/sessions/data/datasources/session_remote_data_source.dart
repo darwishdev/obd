@@ -77,6 +77,9 @@ class SessionRemoteDataSourceImpl implements SessionRemoteDataSource {
           "air_intake_temp": params.obdInfo?.airIntakeTemp,
           "engine_load": params.obdInfo?.engineLoad,
           "module_voltage": params.obdInfo?.moduleVoltage,
+          "oil_temp": params.obdInfo?.oilTemp,
+          "air_fuel_ratio": params.obdInfo?.airFuelRatio,
+          "fuel_pressure": params.obdInfo?.fuelPressure,
         }
       },
     );
