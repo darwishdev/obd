@@ -11,7 +11,8 @@ import 'package:odb_connect/odb_connect.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final obdInfoProvider = FutureProvider.autoDispose<OBDModel?>((ref) {
-  final timer = Timer(const Duration(seconds: 5), () => ref.invalidateSelf());
+  final timer =
+      Timer(const Duration(milliseconds: 500), () => ref.invalidateSelf());
   ref.onDispose(timer.cancel);
   return ref.watch(obdReaderProvider).fetchOBDInfo().then((val) {
     if (val != null) {
