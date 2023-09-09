@@ -60,6 +60,9 @@ class ObdReader with ChangeNotifier {
         OdbConnect.getAirFuelRatio,
         OdbConnect.getFuelPressure,
       ]);
+            print('results::::: ${results}');
+            // print('fetchOBDInfo::::: ${obdModel.toJson()}');
+
       final obdModel = OBDModel(
         speed: results[0],
         rpm: results[1],

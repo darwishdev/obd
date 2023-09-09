@@ -64,8 +64,18 @@ class CheckConnectWidget extends StatelessWidget {
                 icon: "assets/images/bluetooth.svg",
                 iconSize: 30,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                onPressed: () =>
-                    ref.read(obdReaderProvider.notifier).startOBD(),
+                onPressed: ()  {
+                    print("test");
+                    ref.read(obdReaderProvider.notifier).startOBD().then((value) {
+                      print("value"); 
+                    }).catchError((err) {
+                      print(err);
+                      print("err");
+                    })
+                    ;
+                    print("test");
+
+                },
                 text: "connect",
               ),
             );

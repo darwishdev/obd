@@ -47,9 +47,9 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
         child: ref.watch(obdInfoProvider).when(
               loading: () => const CircularProgressIndicator(),
               error: (err, stack) => Text('Error: $err'),
-              data: (info) => ListView(
+              data: (info) => double.tryParse(info?.rpm ?? "") == null ? const  Text("please start your enging") :  ListView(
                 children: [
-                  if (double.parse(info?.moduleVoltage ?? "0") > 10)
+                  if ((double.tryParse(info?.moduleVoltage ?? "0")??0) > 10)
                     ListTile(
                       leading: const Icon(
                         Icons.warning_amber,
@@ -62,7 +62,7 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                       tileColor: Colors.yellow[900],
                     ),
                   const SizedBox(height: 10),
-                  if (double.parse(info?.oilTemp ?? "0") > 110)
+                  if ((double.tryParse(info?.oilTemp ?? "0") ?? 0) > 110)
                     ListTile(
                       leading: const Icon(
                         Icons.dangerous_outlined,
@@ -138,7 +138,7 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                         ],
                         pointers: <GaugePointer>[
                           NeedlePointer(
-                            value: double.parse(info?.rpm ?? "0.0") / 1000,
+                            value: (double.tryParse(info?.rpm ?? "0.0") ?? 0) / 1000,
                             needleLength: 0.95,
                             enableAnimation: true,
                             animationType: AnimationType.ease,
@@ -197,7 +197,7 @@ class _OBDInfoScreenState extends ConsumerState<OBDInfoScreen> {
                         ],
                         pointers: <GaugePointer>[
                           NeedlePointer(
-                            value: double.parse(info?.speed ?? "0.0"),
+                            value: (double.tryParse(info?.speed ?? "0.0")  ?? 0),
                             needleLength: 0.95,
                             enableAnimation: true,
                             animationType: AnimationType.ease,

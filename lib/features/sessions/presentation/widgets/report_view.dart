@@ -36,8 +36,11 @@ class _ReportViewState extends ConsumerState<ReportView> {
         child: CircularProgressIndicator(),
       );
     }
-
+print('statestatestate $state');
     if (state is LoadedViewState<List<SessionCodeModel>>) {
+      if(state.data.isEmpty){
+     return Center(child: Text('asdasdasdasdas'),);
+      }
       return GroupedListView<SessionCodeModel, String>(
         elements: state.data,
         groupBy: (item) => (item.isEmergency ?? false) ? 'Emergency' : 'Normal',
